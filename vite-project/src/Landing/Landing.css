@@ -1,0 +1,401 @@
+.landing-pg {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    /* gap: 1em; */
+    align-items: center;
+    justify-content: center;
+
+    .banner-sec {
+        /* padding-top: 4em; */
+        
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+        /* background-color: rgb(13, 13, 218); */
+        background-image: linear-gradient(rgba(10, 73, 209, 0.5), rgba(11, 45, 214, 0.5)), url(/Users/vishal/Desktop/ConnectE/vite-project/src/assets/bg_img.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* min-height: 50vh; */
+        color: white;
+        justify-content: center;
+
+        .banner-title {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: transparent;
+            gap: 2em;
+
+            h2 {
+                font-size: 3em;
+                line-height: 1.2em;
+                background: transparent;
+                color: white;
+            }
+
+            h4 {
+                font-size: 1.5em;
+                background: transparent;
+                color: white;
+            }
+        }
+
+        .login-btns {
+            background: transparent;
+            display: flex;
+            gap: 2em;
+
+            button {
+                background-color: white;
+                color: rgb(37, 103, 225);
+                padding: 0.8em;
+                width: 200px;
+            }
+        }
+    }
+
+    .working {
+        width: 100%;
+        display: flex;
+        padding-top: 2em;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(243, 244, 246);
+        gap: 2em;
+        padding-bottom: 2em;
+
+        .working-title {
+            width: 60%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h5 {
+                font-size: 1em;
+                color: rgb(91, 90, 90);
+                font-weight: 400;
+            }
+        }
+
+        .working-cards {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* gap: 2em; */
+
+            .work-card-1{
+                width: 20%;
+                border:none;
+                background-color: white;
+                padding: 2em;
+                height: 200px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                h3,p{
+                    background: transparent;
+                    text-align: center;
+                }
+                .icon-p{
+                    font-size: 4em;
+                    background: transparent;
+                }
+
+            }
+
+
+        }
+        .see-features{
+            border: 1px solid  rgb(37, 103, 225);
+            background-color: white;
+            color: rgb(37, 103, 225); ;
+
+        }
+    }
+    .hear-from-community{
+        background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 2em;
+        gap: 2em;
+        padding-bottom: 2em;
+        .community-title{
+            width: 100%;
+            /* padding-top: 2em; */
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+            /* gap: 2em; */
+            h3{
+
+                background: transparent;
+                font-size: 2em;
+            }
+            p{
+                 color:rgb(91, 90, 90);;
+                 font-size: 1.5em;
+                 background: transparent;
+            }
+        }
+        .community-card{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            
+            .card-1{
+                width: 40%;
+                height: 250px;
+                gap: 1em;
+                justify-content: center;
+                padding: 1em;
+                background-color: white;
+                /* border: 1px solid black; */
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                background: transparent;
+                box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                /* align-items: center; 
+                justify-content: center; */
+                p{
+                    background: transparent;
+                    color: rgb(91, 90, 90);
+                }
+
+                .card-profile{
+                    width: 100%;
+                    display: flex;
+                    background: transparent;
+                    gap: 1em;
+                    /* align-items: start;
+                    justify-content: start; */
+                    /* gap: -2em; */
+                    div{
+                        background: transparent;
+                        width: 100%;
+                        
+                        h5,p{
+                            background: transparent;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    .explore{
+        width: 100%;
+        padding-top: 2em;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2em;
+        gap: 4em;
+        .explore-top{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            h3{
+                font-size: 2em;
+            }
+            p{
+                font-size: 1.5em;
+                color:rgb(91, 90, 90);
+            }
+        }
+        .explore-bottom{
+            display: flex;
+            width: 100%;
+            gap: 1em;
+            align-items: center; 
+            justify-content: center;
+            .explore-left{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+                h3{
+                    width: 100%;
+                }
+                .explore-card{
+                    width: 100%;
+                    /* border: 1px solid black; */
+                    border-radius: 10px;
+                    padding: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2em;
+                    background-color: white;
+                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                    p{
+                        background: transparent;
+                    }
+                    .job-type{
+                        width: 100%;
+                        display: flex;
+                        background: transparent;
+                        justify-content:flex-end;
+                        /* text-align: justify; */
+                        p{
+                            width: 50%;
+                            background: transparent;
+                        }
+                        .p-i-type{
+                            border: 1px solid black;
+                            padding:0.3em;
+                            width:50%;
+                            border-radius: 10px;
+                            font-size: small;
+                            text-align: center;
+                            background: transparent;
+                        }
+                        .p-icon{
+                            width: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            padding-left: 40em;
+                            background: transparent;
+                            
+                        }
+                        
+                    }
+                    .opp-title{
+                        width: 100%;
+                        background: transparent;
+                        h3,p{
+                            background: transparent;
+                        }
+                    }
+                    .des-p{
+                        width: 100%;
+                    }
+                    .project-stacks{
+                        display: flex;
+                        background: transparent;
+                        width: 100%;
+                        justify-content: flex-start;
+                        p{  width: 30%;
+                            border: 1px solid rgb(196, 189, 189);
+                            padding: 0.2em;
+                            font-size: small;
+                            border-radius: 10px;
+                            /* width: 100px; */
+                            display: flex;
+                            /* align-items: center; */
+                            background: transparent;
+                            justify-content: center;
+                        }
+
+                    }
+                    .btn-class{
+                        width: 100%;
+                        background: transparent;
+                        button{
+                            color: black;
+                            background: transparent;
+                            background-color:  rgb(243, 244, 246);;
+                        }
+                    }
+
+                }
+                
+            }
+            .explore-right{
+                width:30%;
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+                .funding-card{
+                    width: 90%;
+                    /* border: 1px solid black; */
+                    border-radius: 10px;
+                    padding: 1em;
+                    display:flex;
+                    flex-direction: column;
+                    /* align-items: center; */
+                    /* justify-content: center; */
+                    gap: 1em;
+                    background-color: white;
+                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+                    h3,h5,p{
+                        background: transparent;
+                        width: 100%;
+                    }
+                    button{
+                        width: 100%;
+                        background-color:black;
+                        color: white;
+                        border: 1px solid black;
+                    }
+                }
+            }
+
+        }
+        .explore-btn{
+            background-color: rgb(37, 103, 225);
+            color: white;
+        }
+
+    }
+    .ready{
+        width: 100%;
+        background-color:  rgb(37, 103, 225);
+        color: white;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        h2,p,div{
+            background: transparent;
+            color: white;
+        }
+        h2{
+            font-size: 2em;
+        }
+        p{
+            width:500px;
+            text-align: center;
+        }
+        .signup-btns{
+            display: flex;
+            gap: 2em;
+            button{
+                background-color: white;
+                color: rgb(37, 103, 225);
+                width: 200px;
+                font-weight: 600;
+            }
+        }
+    }
+}

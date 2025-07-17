@@ -1,0 +1,52 @@
+*{
+   margin: 0 auto;
+   padding: 0;
+  /* text-align: center; */
+   background-color:  rgb(243, 244, 246);
+  color: black;
+
+}
+.nav-bar{
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1em;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+
+  
+  h4{
+    font-size: 2em;
+    color:rgb(37, 103, 225);
+    background: transparent;
+  }
+  nav{
+    background: transparent;
+    ul{
+        display: flex;
+        background: transparent;
+        gap: 4em;
+        list-style: none;
+        li{
+          color: rgb(91, 90, 90);
+          background: transparent;
+        }
+    }
+    
+  }
+  .btn-class{
+    display: flex;
+    gap: 2em;
+    background: transparent;
+    button{
+      background-color: rgb(37, 103, 225);
+      color: white;
+
+    }
+    .login-btn{
+      background-color: white;
+      color: rgb(91, 90, 90);
+    }
+  }
+}
