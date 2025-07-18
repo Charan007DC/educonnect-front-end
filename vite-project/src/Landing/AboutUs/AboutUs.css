@@ -31,8 +31,266 @@
                 background: transparent;
                 color: white;
         }
+    }
+    .about-mission-vison{
+        padding-top: 4em;
+        width: 100%;
+        display: flex;
+        gap: 2em;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 4em;
+        .mission-card,.vision-card{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 250px;
+            padding: 1em;
+            gap: 2em;
+            border-radius: 10px;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
+            .mission-title,.vision-title{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                /* justify-content: center; */
+                h2{
+                   display: flex;
+                   gap: 0.5em;
+                   align-items: center;
+                }
+                .mission-des,.vision-des{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+               
+               
+            }
+        }
+    }
+    .gaps{
+        width: 100%;
+        background-color: white;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 4em;
+        padding-bottom: 4em;
+        gap: 4em;
+        .gaps-title{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            h2{
+                background: transparent;
+                font-size: 2em;
+            }
+            p{
+                background: transparent;
+                color:rgb(91, 90, 90);
+            }
+        }
+        .gaps-content{
+            width:100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4em;
+            background: transparent;
+            
+            .student-challenges,.alumni-aspirations{
+                width: 40%;
+                background: transparent;
+                /* border: 1px solid black; */
+                padding: 2em;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5em;
+                border-radius: 10px;
+                background-color:#fef2f2;
+                border-left: red 3px solid;
+                box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                h3{
+                    font-size: 1.5em;
+                    background: transparent;
+                }
+                ul{
+                    background: transparent;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                    li{
+                        background: transparent;
+                    }
+                }
+            }
+            .alumni-aspirations{
+                background-color: #eff6ff;
+                border-left:3px solid blue;
+            }
+        }
+    }
+    .solution{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 4em;
+        gap: 4em;
+        padding-bottom: 4em;
+        .sol-title{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            h2{
+                font-size: 2em;
+            }
+            p{
+                font-size: 1em;
+                color:rgb(91, 90, 90); 
+            }
+        }
+        .solution-content{
+            width: 100%;
+            display: flex;
+            gap: 4em;
+            align-items: center;
+            justify-content: center;
+            .sol-for-std,.sol-for-alumni{
+                width: 40%;
+                gap: 2em;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                flex-direction: column;
+                padding: 2em;
+                border-radius: 10px;
+                .sol-for-std-title,.sol-alumni-title{
+                    h3{
+                        color: rgb(37, 103, 225);
+                    background: transparent;
+                    }
+                }
+                .sol-std-des,.sol-alumni-des{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 1.5em;
+                    .sol-1{
+                        display: flex;
+                        width: 100%;
+                        flex-direction: column;
+                        .sol-1-title{
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5em;
+                            /* justify-content: center; */
+                        }
+                        .s{
+                            margin-left: 1.3em;
+                            color: rgb(91, 90, 90);
+                        }
+                    }
+                }
+                
+            }
+            .sol-for-alumni{
+                width: 40%;
+                .sol-alumni-title{
+                    h3{
+                        color: green;
+                    }
+                }
+            }
+        }
+    }
+    .core-values{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 4em;
+        padding-top: 4em;
+        padding-bottom: 4em;
+        align-items: center;
+        justify-content: center;
+        .core-value-title{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            h2{
+                font-size: 2em;
+            }
+            p{
+                color:rgb(91, 90, 90);
+            }
+        }
+        .core-value-cards{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5em;
+            .card-one{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                padding: 2em;
+                border-radius: 10px;
+                .icon{
+                    font-size:4em;
+                }
+                p{
+                    font-size: x-small;
+                }
 
+            }
+        }
 
     }
+        .ready{
+        width: 100%;
+        background-color:  rgb(37, 103, 225);
+        color: white;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        h2,p,div{
+            background: transparent;
+            color: white;
+        }
+        h2{
+            font-size: 2em;
+        }
+        p{
+            width:500px;
+            text-align: center;
+        }
+        .signup-btns{
+            display: flex;
+            gap: 2em;
+            button{
+                background-color: white;
+                color: rgb(37, 103, 225);
+                width: 200px;
+                font-weight: 600;
+            }
+        }
+    }
+    
 }

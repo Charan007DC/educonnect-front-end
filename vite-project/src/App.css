@@ -1,5 +1,5 @@
 *{
-   margin: 0 auto;
+   margin: 0;
    padding: 0;
   /* text-align: center; */
    background-color:  rgb(243, 244, 246);
@@ -12,8 +12,9 @@
   padding-bottom: 1em;
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background-color: white;
+  
 
   
   h4{

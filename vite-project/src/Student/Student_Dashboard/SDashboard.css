@@ -1,0 +1,285 @@
+.student-dashboard-pg{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .dashboard-content{
+        width: 100%;
+        display: flex;
+        gap: 6em;
+        /* align-items: center; */
+        justify-content: center;
+        padding-top: 4em;
+        padding-bottom: 4em;
+        .dashboard-left{
+            width: 50%;
+            padding: 0em;
+            padding-left: 2em;
+            padding-right: 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2em;
+            height: 650px;
+            gap: 2em;
+            scrollbar-width: thin;
+            scrollbar-color: #ccc transparent;
+            
+            overflow-y: auto;
+            
+            .welcome-section{
+                /* box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+                border: 1px solid rgb(205, 203, 203);
+                width: 100%;
+                padding: 1em;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-color: white;
+                h2{
+                    font-size: 2em;
+                    background: transparent;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5em;
+                }
+                .active-status{
+                    display: flex;
+                    background: transparent;
+                    ul{
+                        display: flex;
+                        gap: 3em;
+                        background: transparent;
+                        padding-left: 1em;
+                        
+                        li{
+                            font-size: small;
+                            background: transparent;
+                        
+                            color:rgb(91, 90, 90);
+                        
+                        }
+                        .green::marker{
+                            color:green;
+                            font-size: large;
+                        }
+                        .yellow::marker{
+                            color: yellow;
+                             font-size: large;
+                        }
+                        .blue::marker{
+                            color: blue;
+                             font-size: large;
+                        }
+
+                    }
+                }
+            }
+            .student-features{
+                width: 100%;
+                display: flex;
+                gap: 2.5em;
+                /* border: 1px solid black; */
+                flex-wrap: wrap;
+                padding: 1em;
+                border-radius: 10px;
+                background-color: white;
+                border: 1px solid rgb(205, 203, 203);
+                .std-profile-card,.student-mentorship-card,.project-cards,.fund-card,.co-std-card,.alumni-card{
+                    width: 25%;
+                    height: 200px;
+                    padding: 1em;
+                    border: 1px solid black;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-radius: 10px;
+                    background-color: rgb(255, 255, 255);
+                    /* background-color: white; */
+                     border: 1px solid rgb(205, 203, 203);
+                   
+                    /* align-items: center; */
+                    h3{
+                        font-size: medium;
+                        background: transparent;
+                    }
+                    p{
+                        font-size: small;
+                        background: transparent;
+                    }
+                    .profile-icon-sec,.mentorship-icon-sec,.project-icon-sec,.fund-icon-sec,.co-std-icon,.alumni-icon{
+                        display: flex;
+                        width: 100%;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        background: transparent;
+                    }
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5em;
+                        background: transparent;
+                        justify-content: center;
+                        button{
+                            width: 100%;
+                            height: 50px;
+                            /* background-color: rgb(37, 103, 225); */
+                            color: white;
+                            font-size: small;
+                        }
+                        .violet-btn{
+                            background-color: rgb(177, 25, 197);
+                        }
+                        .orange-btn{
+                            background-color: rgb(243, 117, 14);
+                        }
+                        .blue-btn{
+                            background-color: rgb(37, 103, 225);;
+                        }
+                        .green-btn{
+                            background-color: green;
+                        }
+                        .teal-btn{
+                            background-color: teal;
+                        }
+                        .purple-btn{
+                            background-color: purple;
+                        }
+
+                    }
+                }
+            }
+            .student-recommendations{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+                border: 1px solid;
+                padding: 1em;
+                /* align-items: center; */
+                justify-content: center;
+                border-radius: 10px;
+                background-color: white;
+                border: 1px solid rgb(205, 203, 203);
+                .recomendation-title{
+                    background: transparent;
+                    h3{
+                        background: transparent;
+                    }
+                    p{
+                            color: rgb(91, 90, 90);
+                            background: transparent;
+                    }
+                    
+                }
+                .recomendation-cards{
+                    width: 100%;
+                    display:flex;
+                    gap: 2em;
+                    align-items: center;
+                    gap: 1em;
+                    
+                    background-color: transparent;
+                    /* justify-content: center; */
+
+                    .rec-card-1{
+                        width: 30%;
+                        padding: 1em;
+                        height: 100px;
+                           background-color: rgb(255, 255, 255);
+                        display: flex;
+                        flex-direction: column;
+                        /* align-items: center; */
+                        justify-content: center;
+                          border: 1px solid rgb(205, 203, 203);
+                          border-radius: 10px;
+                          hr{
+                            width: 100%;
+                            border: 3px solid green;
+                            border-radius: 20px;
+                            margin-top: 5px;
+                          }
+                        h4{
+                            font-size: medium;
+                            background: transparent;
+                        
+                        }
+                        p{
+                            color: rgb(91, 90, 90);
+                            background: transparent;
+                        }
+                        .days-left{
+                            border: 1px solid rgb(218, 215, 215);
+                            width: 70px;
+                            margin-top: 5px;
+                            color: red;
+                            text-align: center;
+                            border-radius: 10px;
+                            font-size: x-small;
+                        }
+                    }
+                }
+            }
+
+        }
+        .dashboard-right{
+            width: 20%;
+            background-color: white;
+            display: flex;
+            height: 620px;
+            padding: 1em;
+            border-radius: 10px;
+            gap: 2em;
+            flex-direction: column;
+                                      border: 1px solid rgb(205, 203, 203);
+
+            .recent-activity-title{
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                background: transparent;
+                h3{
+                    background: transparent;
+                }
+            }
+            .recents{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1em;
+                width: 100%;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                background: transparent;
+                hr{
+                    width: 100%;
+                    border:0.5px solid rgb(186, 184, 184);
+                    background: transparent;
+                    margin-top: 10px;
+                }
+                .first-info{
+                    background: transparent;
+                    p{
+                        background: transparent;
+                    }
+                    .hrs-ago{
+                        color: rgb(91, 90, 90);
+                        font-size: small;
+                        background: transparent;
+                    }
+                }
+                .blue-p{
+                    color: blue;
+                    background: transparent;
+                    margin-top: 20px;
+                    cursor: pointer;
+                }
+            }
+            
+        }
+    }
+}

@@ -98,7 +98,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* gap: 2em; */
+            gap: 2em;
 
             .work-card-1{
                 width: 20%;
@@ -167,6 +167,7 @@
             align-items: center;
             justify-content: center;
             background: transparent;
+            gap: 2em;
             
             .card-1{
                 width: 40%;
@@ -210,161 +211,115 @@
         }
     }
     .explore{
-        width: 100%;
-        padding-top: 2em;
         display: flex;
+        padding-top: 4em;
+        padding-bottom: 4em;
+        width: 100%;
         flex-direction: column;
-        padding-bottom: 2em;
+        align-items: center;
         gap: 4em;
+        justify-content: center;
         .explore-top{
             width: 100%;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            flex-direction: column;
             h3{
                 font-size: 2em;
             }
             p{
                 font-size: 1.5em;
-                color:rgb(91, 90, 90);
+                 color: rgb(91, 90, 90);
             }
         }
         .explore-bottom{
-            display: flex;
             width: 100%;
-            gap: 1em;
-            align-items: center; 
+            display: flex;
+             gap: 4em;
+            align-items: center;
             justify-content: center;
             .explore-left{
                 width: 50%;
                 display: flex;
+                justify-content: center;
                 flex-direction: column;
                 gap: 2em;
+
                 h3{
-                    width: 100%;
+                    font-size: 1.5em;
                 }
                 .explore-card{
-                    width: 100%;
-                    /* border: 1px solid black; */
-                    border-radius: 10px;
-                    padding: 1em;
                     display: flex;
                     flex-direction: column;
-                    gap: 2em;
-                    background-color: white;
-                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-                    p{
-                        background: transparent;
-                    }
+                    width: 100%;
+                    padding: 1em;
+                    gap: 1em;
+                    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                    border-radius: 10px;
+                    
                     .job-type{
-                        width: 100%;
                         display: flex;
-                        background: transparent;
-                        justify-content:flex-end;
-                        /* text-align: justify; */
-                        p{
-                            width: 50%;
-                            background: transparent;
-                        }
+                        align-items: center;
+                        width: 100%;
+                        justify-content: space-between;
                         .p-i-type{
-                            border: 1px solid black;
-                            padding:0.3em;
-                            width:50%;
+                            border: 1px solid;
                             border-radius: 10px;
-                            font-size: small;
-                            text-align: center;
-                            background: transparent;
+                            padding: 0.2em;
                         }
-                        .p-icon{
-                            width: 50%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: flex-end;
-                            padding-left: 40em;
-                            background: transparent;
-                            
-                        }
-                        
                     }
                     .opp-title{
-                        width: 100%;
-                        background: transparent;
-                        h3,p{
-                            background: transparent;
+                        p{
+                           color: rgb(91, 90, 90);;
                         }
-                    }
-                    .des-p{
-                        width: 100%;
                     }
                     .project-stacks{
+                        width: 100%;
                         display: flex;
-                        background: transparent;
-                        width: 100%;
-                        justify-content: flex-start;
-                        p{  width: 30%;
-                            border: 1px solid rgb(196, 189, 189);
-                            padding: 0.2em;
-                            font-size: small;
+                        gap: 1em;
+                        p{
+                            border: 1px solid ;
                             border-radius: 10px;
-                            /* width: 100px; */
-                            display: flex;
-                            /* align-items: center; */
-                            background: transparent;
-                            justify-content: center;
-                        }
-
-                    }
-                    .btn-class{
-                        width: 100%;
-                        background: transparent;
-                        button{
-                            color: black;
-                            background: transparent;
-                            background-color:  rgb(243, 244, 246);;
+                            padding: 0.2em;
+                            font-size: smaller;
+                            
                         }
                     }
-
-                }
-                
-            }
-            .explore-right{
-                width:30%;
-                display: flex;
-                flex-direction: column;
-                gap: 2em;
-                .funding-card{
-                    width: 90%;
-                    /* border: 1px solid black; */
-                    border-radius: 10px;
-                    padding: 1em;
-                    display:flex;
-                    flex-direction: column;
-                    /* align-items: center; */
-                    /* justify-content: center; */
-                    gap: 1em;
-                    background-color: white;
-                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-                    h3,h5,p{
-                        background: transparent;
-                        width: 100%;
-                    }
-                    button{
-                        width: 100%;
-                        background-color:black;
-                        color: white;
+                    .view-details-btn{
+                        background-color: white;
                         border: 1px solid black;
                     }
                 }
             }
-
+            .explore-right{
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+                
+                align-items: center;
+                justify-content: center;
+                .funding-card{
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 300px;
+                    /* align-items: center; */
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                    padding: 1em;
+                    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                    button{
+                        color: white;
+                    }
+                }
+            }
         }
-        .explore-btn{
-            background-color: rgb(37, 103, 225);
-            color: white;
-        }
-
+    }
+    .explore-btn{
+        background-color:  rgb(37, 103, 225);
+        color: white;
     }
     .ready{
         width: 100%;

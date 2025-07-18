@@ -28,8 +28,8 @@ const AboutUs = () => {
             <div className='about-mission-vison'>
                 <div className='mission-card'>
                     <div className='mission-title'>
-                        <p><LuTarget /></p>
-                        <h2>Our Mission</h2>
+                        
+                        <h2><FaEye/>Our Mission</h2>
                     </div>
                     <div className='mission-des'>
                         <p>To cultivate a vibrant, supportive community bridging aspiring engineering students and seasoned alumni. We empower the next generation through mentorship, real-world opportunities, and collaborative learning, while enabling experienced professionals to give back and stay connected with the future of engineering.</p>
@@ -37,8 +37,8 @@ const AboutUs = () => {
                 </div>
                 <div className='vision-card'>
                     <div className='vision-title'>
-                        <p><FaEye /></p>
-                        <h2>Our Vission</h2>
+                        
+                        <h2><FaEye/>Our Vission</h2>
                     </div>
                     <div className='vision-des'>
                         <p>We envision a world where knowledge flows seamlessly between generations of engineers, where careers are launched through meaningful connections, and where the future of engineering is shaped through collaboration, innovation, and shared expertise.</p>
@@ -76,7 +76,7 @@ const AboutUs = () => {
             <div className='solution'>
                 <div className='sol-title'>
                     <h2>Our Solution: Empowering ngineering Excellence</h2>
-                    A comprehensive platform designed to meet the unique needs of both students and alumni<p></p>
+                    <p>A comprehensive platform designed to meet the unique needs of both students and alumni</p>
                 </div>
                 <div className='solution-content'>
                     <div className='sol-for-std'>
@@ -89,28 +89,29 @@ const AboutUs = () => {
                                     <p><TbUsers /></p>
                                     <h4>Mentorships</h4>
                                 </div>
-                                <p>Access seasoned professionals for career guidance and industry insights</p>
+                                <p className='s'>Access seasoned professionals for career guidance and industry insights</p>
                             </div>
                             <div className='sol-1'>
                                 <div className='sol-1-title'>
                                     <p><TbUsers /></p>
                                     <h4>Mentorships</h4>
                                 </div>
-                                <p>Access seasoned professionals for career guidance and industry insights</p>
+                                <p className='s'>Access seasoned professionals for career guidance and industry insights</p>
+                               
                             </div>
                             <div className='sol-1'>
                                 <div className='sol-1-title'>
                                     <p><TbUsers /></p>
                                     <h4>Mentorships</h4>
                                 </div>
-                                <p>Access seasoned professionals for career guidance and industry insights</p>
+                                <p className='s'>Access seasoned professionals for career guidance and industry insights</p>
                             </div>
                             <div className='sol-1'>
                                 <div className='sol-1-title'>
                                     <p><TbUsers /></p>
                                     <h4>Mentorships</h4>
                                 </div>
-                                <p>Access seasoned professionals for career guidance and industry insights</p>
+                                <p className='s'>Access seasoned professionals for career guidance and industry insights</p>                                
                             </div>
                         </div>
                     </div>
@@ -159,22 +160,22 @@ const AboutUs = () => {
                 </div>
                 <div className='core-value-cards'>
                     <div className='card-one'>
-                        <p><TbUsers/></p>
+                        <p className='icon'><TbUsers/></p>
                         <h4>Community</h4>
                         <p>Building strong connections</p>
                     </div>
                       <div className='card-one'>
-                        <p><TbUsers/></p>
+                       <p className='icon'><TbUsers/></p>
                         <h4>Community</h4>
                         <p>Building strong connections</p>
                     </div>
                       <div className='card-one'>
-                        <p><TbUsers/></p>
+                       <p className='icon'><TbUsers/></p>
                         <h4>Community</h4>
                         <p>Building strong connections</p>
                     </div>
                       <div className='card-one'>
-                        <p><TbUsers/></p>
+                      <p className='icon'><TbUsers/></p>
                         <h4>Community</h4>
                         <p>Building strong connections</p>
                     </div>
