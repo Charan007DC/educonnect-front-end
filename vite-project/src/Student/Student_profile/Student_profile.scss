@@ -1,0 +1,440 @@
+.Std-profile-pg {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4em;
+    color: black;
+
+    .std-profile-banner {
+        padding-top: 4em;
+        padding-bottom: 4em;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        background-color: rgb(229, 236, 243);
+
+        .profile-img-sec {
+            background: transparent;
+
+            img {
+                border: 1px solid black;
+                border-radius: 50%;
+                padding: 0.5em;
+                background-color: rgb(234, 231, 231);
+            }
+        }
+
+        .std-name-clg {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2em;
+
+            h3 {
+                background: transparent;
+                font-size: 2em;
+            }
+
+            p {
+                background: transparent;
+                color: rgb(135, 133, 133);
+
+            }
+
+            div {
+                display: flex;
+                gap: 1em;
+                background: transparent;
+            }
+        }
+
+        .profile-btns {
+            display: flex;
+            gap: 1em;
+            background: transparent;
+            flex-direction: column;
+
+            .edit {
+                background-color: rgb(37, 103, 225);
+                color: white;
+                padding: 0.8em;
+                display: flex;
+                align-items: center;
+                gap: 0.5em;
+                justify-content: center;
+            }
+
+            button {
+                background-color: white;
+                padding: 0.8em;
+
+            }
+            .share-btn{
+                color: black;
+            }
+        }
+    }
+
+    .std-details {
+        width: 100%;
+        padding-bottom: 4em;
+        padding-top: 4em;
+        display: flex;
+        gap: 4em;
+        /* align-items: center; */
+        justify-content: center;
+
+        .std-details-left {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2em;
+
+            .std-about-me {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                background-color: white;
+                border-radius: 10px;
+                border: 1px solid rgb(205, 203, 203);
+                padding: 1em;
+
+                h3,
+                p {
+                    background: transparent;
+                }
+            }
+
+            .std-projects {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+                background-color: white;
+                border-radius: 10px;
+                border: 1px solid rgb(205, 203, 203);
+                padding: 1em;
+
+                h3 {
+                    background: transparent;
+                }
+
+                .view-all-link {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: transparent;
+                    color: rgb(0, 123, 255);
+                    ;
+                }
+
+                .individual-project-std {
+                    padding: 0.4em;
+                    background: transparent;
+                    border-left: 3px solid rgb(0, 123, 255);
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+
+                    .individual-project-title {
+                        background: transparent;
+                        display: flex;
+                        justify-content: space-between;
+
+                        /* align-items: center; */
+                        p {
+                            font-size: 1.5em;
+                        }
+
+                        h4 {
+                            font-size: 1.2em;
+                        }
+
+                        h4,
+                        p {
+                            background: transparent;
+                        }
+                    }
+
+                    p {
+                        background: transparent;
+                    }
+
+                    .project-stacks {
+                        display: flex;
+                        background: transparent;
+                        gap: 1em;
+
+                        p {
+                            border: 1px solid rgb(0, 123, 255);
+                            padding: 0.5em;
+                            font-size: x-small;
+                            border-radius: 5px;
+                            color: rgb(0, 123, 255);
+                            background-color: rgb(201, 221, 243);
+                        }
+                    }
+                }
+            }
+
+            .fundraising-section-std {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                border: 1px solid rgb(205, 203, 203);
+                border-radius: 10px;
+                padding: 1em;
+                gap: 1em;
+
+                h3 {
+                    font-size: 1.2em;
+                    background: transparent;
+                }
+
+                .a {
+                    background: transparent;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                    background: transparent;
+
+                    h4,
+                    p {
+                        background: transparent;
+                    }
+
+                    .progress-bar {
+                        background: transparent;
+                        display: flex;
+
+                        flex-direction: column;
+
+                        .names {
+                            display: flex;
+                            justify-content: space-between;
+                            background: transparent;
+
+                            p {
+                                background: transparent;
+                                color: rgb(101, 100, 100);
+                            }
+
+                        }
+
+                        hr {
+                            border: 3px solid rgb(63, 85, 175);
+                            border-radius: 10px;
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        .std-details-right {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center;
+            justify-content: center; */
+            gap: 2em;
+
+            .skills-card {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+                border-radius: 10px;
+                background-color: white;
+                border: 1px solid rgb(205, 203, 203);
+                padding: 1em;
+
+                .skills-title {
+                    background: transparent;
+                    align-items: center;
+                    display: flex;
+                    gap: 0.5em;
+                    p{
+                        color:rgb(0, 123, 255);
+                    }
+                   
+
+                    p,
+                    h3 {
+                        background: transparent;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+
+                .domains {
+                    background: transparent;
+                    display: flex;
+                    width: 100%;
+                    flex-wrap: wrap;
+                    gap: 1em;
+
+                    p {
+                        background: transparent;
+                        border: 1px solid rgb(0, 123, 255);
+                        padding: 0.5em;
+                        font-size: x-small;
+                        border-radius: 5px;
+                        color: rgb(0, 123, 255);
+                        background-color: rgb(201, 221, 243);
+                    }
+                }
+            }
+
+            .education-card {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                width: 100%;
+                border-radius: 10px;
+                background-color: white;
+                border: 1px solid rgb(205, 203, 203);
+                padding: 1em;
+
+                .education-title {
+                    display: flex;
+                    gap: 1em;
+                    background: transparent;
+                    align-items: center;
+                    p{
+                        color:rgb(0, 123, 255);
+                    }
+                   
+                   
+
+                    h3,p{
+                        background: transparent;
+                    }
+
+                }
+
+                .education-details {
+                    background: transparent;
+
+                    p,h3{
+                        background: transparent;
+                    }
+                }
+            }
+
+            .academic-intrest {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                border-radius: 10px;
+                background-color: white;
+                border: 1px solid rgb(205, 203, 203);
+                padding: 1em;
+
+                h3 {
+                    background: transparent;
+                    font-size: 1.2em;
+                }
+
+                .intrested-areas {
+                    background: transparent;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1em;
+
+                    p {
+                        border: 1px solid rgb(0, 123, 255);
+                        padding: 0.5em;
+                        font-size: small;
+                        border-radius: 5px;
+                        color: rgb(0, 123, 255);
+                        /* */
+                    }
+                }
+            }
+
+            .Looking-for {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 1em;
+                gap: 0.5em;
+                border-radius: 10px;
+                background-color: white;
+                border: 1px solid rgb(205, 203, 203);
+
+                h3 {
+                    background: transparent;
+                }
+
+                ul {
+                    padding: 1em;
+                    background: transparent;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5em;
+
+                    li {
+                        background: transparent;
+
+                    }
+
+                    li::marker {
+                        color:rgb(5, 48, 150);
+                    }
+                }
+            }
+        }
+    }
+    .connect-links{
+        width:75%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+        border-radius: 10px;
+        border: 1px solid rgb(205, 203, 203);
+        padding: 1em;
+        background-color: rgb(229, 236, 243);
+        justify-content: center;
+        h3{
+            font-size: 3em;
+            background: transparent;
+        }
+        .links{
+            display: flex;
+            gap: 4em;
+            background: transparent;
+            
+            div{
+                display: flex;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                border: 1px solid black;
+                padding: 2em;
+                /* background: transparent; */
+                border-radius: 20px;
+                p{
+                    font-size: 2em;
+                    background: transparent;
+                }
+                h4{
+                    background: transparent;
+                }
+            }
+        }
+       
+    }
+}

@@ -8,7 +8,13 @@ import { FaGraduationCap } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
 import { MdWavingHand } from "react-icons/md"
 import { IoIosArrowForward } from "react-icons/io";
+import { FiUser } from "react-icons/fi";
+import { PiNetworkThin } from "react-icons/pi";
 import './SDashboard.css'
+import { MdOutlineAttachMoney } from "react-icons/md";
+import { RiGraduationCapLine } from "react-icons/ri";
+
+import { BsSuitcaseLg } from "react-icons/bs";
 const SDashboard = () => {
     const [showAll, setShowAll] = useState(false)
     const messages = [
@@ -54,7 +60,7 @@ const SDashboard = () => {
                         <div className='student-features'>
                             <div className='std-profile-card'>
                                 <div className='profile-icon-sec'>
-                                    <p style={{ fontSize: '1.5em' }}><FaUserAlt style={{ background: 'transparent' }} /></p>
+                                    <p style={{ fontSize: '2em' }}><FiUser style={{ background: 'transparent' ,color:'rgb(37, 103, 225)'}} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
                                 </div>
                                 <div>
@@ -65,7 +71,7 @@ const SDashboard = () => {
                             </div>
                             <div className='student-mentorship-card'>
                                 <div className='mentorship-icon-sec'>
-                                    <p style={{ fontSize: '2em' }}><FiUsers style={{ background: 'transparent' }} /></p>
+                                    <p style={{ fontSize: '2em' }}><FiUsers style={{ background: 'transparent' ,color:'green'}} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
 
                                 </div>
@@ -77,7 +83,7 @@ const SDashboard = () => {
                             </div>
                             <div className='project-cards'>
                                 <div className='project-icon-sec'>
-                                    <p style={{ fontSize: '2em' }}><FaSuitcase style={{ background: 'transparent' }} /></p>
+                                    <p style={{ fontSize: '2em' }}><BsSuitcaseLg style={{ background: 'transparent',color:' rgb(177, 25, 197)' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
 
                                 </div>
@@ -89,7 +95,7 @@ const SDashboard = () => {
                             </div>
                             <div className='fund-card'>
                                 <div className='fund-icon-sec'>
-                                    <p style={{ fontSize: '2em' }}><FaSackDollar style={{ background: 'transparent' }} /></p>
+                                    <p style={{ fontSize: '2em' }}><MdOutlineAttachMoney style={{ background: 'transparent',color:'orange' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
 
                                 </div>
@@ -103,7 +109,7 @@ const SDashboard = () => {
                             </div>
                             <div className='co-std-card'>
                                 <div className='co-std-icon'>
-                                    <p style={{ fontSize: '2em' }}><ImTree style={{ background: 'transparent' }} /></p>
+                                    <p style={{ fontSize: '2em' }}><PiNetworkThin style={{ background: 'transparent',color:'teal' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
 
                                 </div>
@@ -115,7 +121,7 @@ const SDashboard = () => {
                             </div>
                             <div className='alumni-card'>
                                 <div className='alumni-icon'>
-                                    <p style={{ fontSize: '2em' }}><FaGraduationCap style={{ background: 'transparent' }} /></p>
+                                    <p style={{ fontSize: '2em' }}><RiGraduationCapLine style={{ background: 'transparent',color:'violet' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
 
                                 </div>

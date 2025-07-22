@@ -1,8 +1,13 @@
 import React from 'react'
-import dp from '../../assets/logo.png'
+import dp from '../../assets/dp.png'
 import { FiGithub } from "react-icons/fi";
 import { HiStar } from "react-icons/hi";
 import { RiGraduationCapFill } from "react-icons/ri";
+import { FaLinkedin } from "react-icons/fa";
+import './Student_profile.scss'
+import { FaRegEdit } from "react-icons/fa";
+import { FaPencil } from "react-icons/fa6";
+import { RiShareForwardLine } from "react-icons/ri";
 const Student_profile = () => {
     return (
         <>
@@ -24,21 +29,21 @@ const Student_profile = () => {
                 </div>
                 <div className='std-profile-banner'>
                     <div className='profile-img-sec'>
-                        <img src={dp} />
+                        <img src={dp} style={{width:'100px',height:'100px'}}/>
                     </div>
                     <div className='std-name-clg'>
                         <h3>Vishal Saravanane</h3>
-                        <p>Engineering Student-Computer Science Engineering</p>
+                        <p style={{color:'black'}}>Engineering Student-Computer Science Engineering</p>
                         <p>Graduating 2025</p>
                         <div className='clg-name-loc'>
                             <p>Smvec</p>
                             <p>Madagadipet</p>
                         </div>
-                        <p>Passionate CS student focused on AI/ML and sustainable technology. Building the future through code and innovation.</p>
+                        <p style={{color:'black'}}>Passionate CS student focused on AI/ML and sustainable technology. Building the future through code and innovation.</p>
                     </div>
                     <div className='profile-btns'>
-                        <button>Edit Profile</button>
-                        <button>Share Profile</button>
+                        <button className='edit'><FaRegEdit style={{background:'transparent',color:'white'}}/> Edit Profile</button>
+                        <button className='share-btn' style={{display:'flex',alignItems:'center',gap:'0.5em'}}><RiShareForwardLine style={{background:'transparent',color:'black',fontSize:'1.5em'}}/>Share Profile</button>
                     </div>
                 </div>
                 <div className='std-details'>
@@ -52,7 +57,7 @@ const Student_profile = () => {
                             <div className='individual-project-std'>
                                 <div className='individual-project-title'>
                                     <h4>EcoTrack - Carbon Footprint Calculator</h4>
-                                    <p><FiGithub /></p>
+                                    <p><FiGithub style={{background:'transparent'}}/></p>
                                 </div>
                                 <p>A web application that helps users track and reduce their carbon footprint through daily activity monitoring and personalized recommendations.</p>
                                 <div className='project-stacks'>
@@ -65,7 +70,7 @@ const Student_profile = () => {
                             <div className='individual-project-std'>
                                 <div className='individual-project-title'>
                                     <h4>EcoTrack - Carbon Footprint Calculator</h4>
-                                    <p><FiGithub /></p>
+                                    <p><FiGithub  style={{background:'transparent'}}/></p>
                                 </div>
                                 <p>A web application that helps users track and reduce their carbon footprint through daily activity monitoring and personalized recommendations.</p>
                                 <div className='project-stacks'>
@@ -75,10 +80,11 @@ const Student_profile = () => {
                                     <p>Node.js</p>
                                 </div>
                             </div>
+                            <p className='view-all-link'>View all Projects</p>
                         </div>
                         <div className='fundraising-section-std'>
                             <h3>Fundraising Campaigns</h3>
-                            <div>
+                            <div className='a'>
                                 <h4>Women in Tech Scholarship Fund</h4>
                                 <p>
                                     Supporting underrepresented women pursuing careers in technology through educational scholarships.
@@ -88,6 +94,7 @@ const Student_profile = () => {
                                         <p>Raised: $2000</p>
                                         <p>Goal: $10000</p>
                                     </div>
+                                    <hr />
                                 </div>
                             </div>
                         </div>
@@ -95,7 +102,7 @@ const Student_profile = () => {
                     <div className='std-details-right'>
                         <div className='skills-card'>
                             <div className='skills-title'>
-                                <p><HiStar /></p>
+                                <p><HiStar  style={{background:'transparent',fontSize:'1.5em'}}/></p>
                                 <h3>Skills</h3>
                             </div>
                             <div className='domains'>
@@ -109,7 +116,7 @@ const Student_profile = () => {
                         </div>
                         <div className='education-card'>
                             <div className='education-title'>
-                                <p><RiGraduationCapFill /></p>
+                                <p style={{fontSize:'1.5em'}}><RiGraduationCapFill style={{background:'transparent'}}  /></p>
                                 <h3>Education</h3>
                             </div>
                             <div className='education-details'>
@@ -142,6 +149,23 @@ const Student_profile = () => {
                         </div>
                     </div>
                 </div>
+                {/* <div className='connect-links'>
+                    <h3>Connect</h3>
+                    <div className='links'>
+                        <div>
+                            <p><FaLinkedin/></p>
+                            <h4>Linkedin</h4>
+                        </div>
+                        <div>
+                            <p><FaLinkedin/></p>
+                            <h4>Linkedin</h4>
+                        </div>
+                        <div>
+                            <p><FaLinkedin/></p>
+                            <h4>Linkedin</h4>
+                        </div>
+                    </div>
+                </div> */}
             </div>
         </>
     )

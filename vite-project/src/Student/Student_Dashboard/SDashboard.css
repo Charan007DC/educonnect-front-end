@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: black;
     .dashboard-content{
         width: 100%;
         display: flex;
@@ -45,6 +46,9 @@
                     display: flex;
                     align-items: center;
                     gap: 0.5em;
+                    svg{
+                        color: rgb(221, 173, 53);
+                    }
                 }
                 .active-status{
                     display: flex;
