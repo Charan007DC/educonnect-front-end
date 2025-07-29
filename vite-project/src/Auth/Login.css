@@ -1,0 +1,152 @@
+.login-container,.signup-page{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    .login-card,.signup-card{
+        /* border: 1px solid black; */
+        padding: 1em;
+        height: 500px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 400px;
+        align-items: center;
+        justify-content: center;
+        box-shadow: rgba(5, 110, 214, 0.35) 0px 0px 20px 10px;
+        
+        .e-connect-logo{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5em;
+            h2{
+                background: rgb(37, 103, 225);
+                width: fit-content;
+                padding: 0.5em;
+                border-radius: 10px;
+                color: white;
+            }
+            h3{
+                font-size: 2em;
+            }
+            p{
+                font-size: 1em;
+                color: rgb(86, 85, 85);
+            }
+        }
+        .login-form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            form{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 0.2em;
+                input{
+                    padding: 1em;
+                    background: transparent;
+                    border:0.5px solid grey;
+                    border-radius: 5px;
+                    color: black;
+
+                }
+            }
+            .remember-box{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                div{
+                    input{
+                        color: white;
+                    }
+                }
+                p{
+                    color: rgb(37, 103, 225);
+                }
+            }
+            button{
+                background-color: rgb(37, 103, 225);
+                color: white;
+            }
+
+        }
+        p{
+             font-size: 1em;
+                color: rgb(86, 85, 85);
+        }
+    }
+}
+
+
+.signup-button-types{
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    button{
+        width: 50%;
+        background-color:rgb(37, 103, 225);
+        
+    }
+}
+.signup-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    gap: 1em;
+    form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        gap: 1em;
+        div{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            input{
+                padding: 1em;
+                    background: transparent;
+                    border:0.5px solid grey;
+                    border-radius: 5px;
+                    color: black;
+            }
+        }
+        button{
+              background-color: rgb(37, 103, 225);
+                color: white;
+                padding: 0.7em;
+        }
+    }
+}   
+
+.signup-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 2px solid rgb(37, 103, 225);
+}
+
+/* Inactive: only border, white bg */
+.signup-btn.inactive {
+  background-color: white;
+  color: rgb(37, 103, 225);
+}
+
+/* Active: filled blue bg */
+.signup-btn.active {
+  background-color:rgb(37, 103, 225);
+  color: white;
+}

@@ -1,0 +1,1 @@
+export { default as AlumniDirectory } from './AlumniDirectory.jsx'; 

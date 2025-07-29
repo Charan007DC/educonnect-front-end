@@ -119,7 +119,7 @@ const SDashboard = () => {
                                     <button className='teal-btn'>Find Students</button>
                                 </div>
                             </div>
-                            <div className='alumni-card'>
+                            <div className='alumni-card-1'>
                                 <div className='alumni-icon'>
                                     <p style={{ fontSize: '2em' }}><RiGraduationCapLine style={{ background: 'transparent',color:'violet' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
