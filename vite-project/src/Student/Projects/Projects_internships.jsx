@@ -121,30 +121,34 @@ const Projects_internships = () => {
           <div className='project-no-results'>No projects or internships found.</div>
         ) : (
           filteredProjects.map(item => (
-            <div className='project-card' key={item.id}>
-              <img src={item.image} alt={item.title} className='project-card-img' />
-              <div className='project-card-info'>
-                <h3 className='project-title'>{item.title}</h3>
-                <div className='project-meta-row'>
-                  <span className='project-type'>{item.type} @ {item.company}</span>
+            <div className='alumni-card' key={item.id}> {/* Use alumni-card for consistent style */}
+              <div className='card-header-section'>
+                <img src={item.image} alt={item.title} className='alumni-card-img' />
+                <div className='alumni-info'>
+                  <h3>{item.title}</h3>
+                  <p className='alumni-job'>{item.type} @ {item.company}</p>
+                  <p className='alumni-company-uni'>{item.location}</p>
                 </div>
-                {item.duration && (
-                  <div className='project-duration-row'>
-                    <span className='calendar-icon' role='img' aria-label='calendar'>📅</span>
-                    <span className='project-duration'>{item.duration}</span>
-                  </div>
-                )}
-                <div className='project-stack'>
-                  {item.stack && item.stack.map((tech, idx) => (
-                    <span className='stack-tag' key={idx}>{tech}</span>
-                  ))}
-                </div>
-                <p className='project-desc'>{item.description}</p>
-                <div className='project-poster'>Posted by: {item.postedBy}</div>
               </div>
-              <div className='project-card-actions'>
-                <button className='apply-btns'>Apply</button>
-                <button className='view-details-btn'>View Details</button>
+              <div className='card-content'>
+                <div className='skills-section'>
+                  <div className='skills-grid'>
+                    {item.stack && item.stack.map((tech, idx) => (
+                      <span className='skill-tag' key={idx}>{tech}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className='details-section'>
+                  <p className='details-text'>Duration: {item.duration} • Salary: {item.salary || 'N/A'} • Experience: {item.experience || 'N/A'}</p>
+                  <p className='batch-text'>Posted by: {item.postedBy}</p>
+                </div>
+                <div className='description-section' style={{background:'transparent'}}>
+                  <p className='project-desc'>{item.description}</p>
+                </div>
+              </div>
+              <div className='project-card-actions' style={{background:'transparent'}}>
+                <button className='view-profile-btn'>Apply</button>
+                <button className='view-profile-btn'>View Details</button>
               </div>
             </div>
           ))

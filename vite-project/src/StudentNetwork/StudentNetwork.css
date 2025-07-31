@@ -108,6 +108,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2.5rem;
+  background: transparent;
 }
 .student-search-input {
   width: 100%;

@@ -8,9 +8,11 @@ const alumniData = [
     job: 'Senior Software Engineer',
     company: 'Google',
     university: 'SMVEC',
-   
-    batch:'2020-2024',
+    batch: '2020-2024',
     image: 'https://randomuser.me/api/portraits/men/32.jpg',
+    skills: ['React', 'Node.js', 'Python', 'AWS'],
+    experience: '5+ years',
+    location: 'San Francisco, CA',
   },
   {
     id: 2,
@@ -18,9 +20,11 @@ const alumniData = [
     job: 'Mechanical Design Engineer',
     company: 'Tesla',
     university: 'SMVEC',
-    
-    batch:'2020-2024',
+    batch: '2020-2024',
     image: 'https://randomuser.me/api/portraits/women/44.jpg',
+    skills: ['AutoCAD', 'SolidWorks', 'MATLAB', 'FEA'],
+    experience: '3+ years',
+    location: 'Austin, TX',
   },
   {
     id: 3,
@@ -28,9 +32,11 @@ const alumniData = [
     job: 'Principal Civil Engineer',
     company: 'AECOM',
     university: 'SMVEC',
-    
-    batch:'2020-2024',
+    batch: '2020-2024',
     image: 'https://randomuser.me/api/portraits/men/54.jpg',
+    skills: ['AutoCAD', 'Revit', 'ETABS', 'Project Management'],
+    experience: '8+ years',
+    location: 'Los Angeles, CA',
   },
   {
     id: 4,
@@ -38,9 +44,11 @@ const alumniData = [
     job: 'Data Scientist',
     company: 'Facebook',
     university: 'SMVEC',
-    
-    batch:'2020-2024',
+    batch: '2020-2024',
     image: 'https://randomuser.me/api/portraits/women/68.jpg',
+    skills: ['Python', 'Machine Learning', 'SQL', 'TensorFlow'],
+    experience: '4+ years',
+    location: 'Menlo Park, CA',
   },
   {
     id: 5,
@@ -48,9 +56,11 @@ const alumniData = [
     job: 'Product Manager',
     company: 'Amazon',
     university: 'SMVEC',
-    
-    batch:'2020-2024',
+    batch: '2020-2024',
     image: 'https://randomuser.me/api/portraits/men/12.jpg',
+    skills: ['Product Strategy', 'Agile', 'User Research', 'Analytics'],
+    experience: '6+ years',
+    location: 'Seattle, WA',
   },
   {
     id: 6,
@@ -58,9 +68,11 @@ const alumniData = [
     job: 'UX Designer',
     company: 'Apple',
     university: 'SMVEC',
-    
-    batch:'2020-2024',
+    batch: '2020-2024',
     image: 'https://randomuser.me/api/portraits/women/23.jpg',
+    skills: ['Figma', 'Sketch', 'User Research', 'Prototyping'],
+    experience: '4+ years',
+    location: 'Cupertino, CA',
   },
 ];
 
@@ -72,13 +84,14 @@ const AlumniDirectory = () => {
     return (
       alum.name.toLowerCase().includes(searchLower) ||
       alum.company.toLowerCase().includes(searchLower) ||
-      alum.job.toLowerCase().includes(searchLower)
+      alum.job.toLowerCase().includes(searchLower) ||
+      alum.skills.some(skill => skill.toLowerCase().includes(searchLower))
     );
   });
 
   return (
     <div className="alumni-directory-outer">
-      {/* Navbar (copied from other pages) */}
+      {/* Navbar */}
       <div className="nav-bar">
         <h4>ConnectE</h4>
         <nav>
@@ -97,7 +110,7 @@ const AlumniDirectory = () => {
 
       {/* Banner Section */}
       <div className="alumni-banner">
-        <h2>Alumni Directory</h2>
+        <h3>Alumni Directory</h3>
         <div className="alumni-banner-stats">
           <span>20+ Alumni</span>
           <span>5+ Batches</span>
@@ -108,7 +121,7 @@ const AlumniDirectory = () => {
       <div className="alumni-search-section">
         <input
           type="text"
-          placeholder="Search by name, company, or job title..."
+          placeholder="Search by name, company, job title, or skills..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="alumni-search-input"
@@ -122,14 +135,33 @@ const AlumniDirectory = () => {
         ) : (
           filteredAlumni.map(alum => (
             <div className="alumni-card" key={alum.id}>
-              <img src={alum.image} alt={alum.name} className="alumni-card-img" />
-              <div className="alumni-card-info">
-                <h3>{alum.name}</h3>
-                <p className="alumni-job">{alum.job} @ {alum.company}</p>
-                <p className="alumni-university">{alum.university}</p>
-                <p className="alumni-batch">{alum.batch}</p>
+              <div className="card-header-section">
+                <img src={alum.image} alt={alum.name} className="alumni-card-img" />
+                <div className="alumni-info">
+                  <h3>{alum.name}</h3>
+                  <p className="alumni-job">{alum.job}</p>
+                  <p className="alumni-company-uni">{alum.company} • {alum.university}</p>
+                </div>
               </div>
-              <div className='view-profile-btn'>View Profile</div>
+              
+              <div className="card-content">
+                <div className="skills-section">
+                  <div className="skills-grid">
+                    {alum.skills.map((skill, idx) => (
+                      <span className="skill-tag" key={idx}>{skill}</span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="details-section">
+                  <p className="details-text">{alum.experience} Experience • {alum.location}</p>
+                  <p className="batch-text">Batch: {alum.batch}</p>
+                </div>
+              </div>
+              
+              <div className="card-actions">
+                <button className="view-profile-btn">View Profile</button>
+              </div>
             </div>
           ))
         )}
