@@ -10,6 +10,12 @@ const Landing = () => {
     const handleAbout=()=>{
         Navigate('/aboutUs')
     }
+    const handleLogin=()=>{
+        Navigate('/login')
+    }
+    const handleSignup=()=>{
+        Navigate('/signup')
+    }
     return (
         <>
             <div className='landing-pg'>
@@ -24,8 +30,8 @@ const Landing = () => {
                         </ul>
                     </nav>
                     <div className='btn-class'>
-                        <button className='login-btn'>Login</button>
-                        <button>Sign Up</button>
+                        <button className='login-btn' onClick={handleLogin}>Login</button>
+                        <button onClick={handleSignup}>Sign Up</button>
                     </div>
 
                 </div>
