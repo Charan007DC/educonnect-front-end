@@ -10,6 +10,7 @@ import { AlumniDirectory } from './AlumniDir';
 import Login from './Auth/Login'
 import Signup from './Auth/Signup'
 import Porject from './Student/Projects/Projects_internships'
+import StudentNetwork from './StudentNetwork/StudentNetwork.jsx'
 // import SignupStudent from './Login/SignupStudent'
 const App = () => {
   return (
@@ -25,6 +26,8 @@ const App = () => {
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/project' element={<Porject/>}/>
+          <Route path='/student-network' element={<StudentNetwork/>}/>
+          
         </Routes>
       </Router>
     </>
