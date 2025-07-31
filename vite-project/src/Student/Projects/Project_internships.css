@@ -149,6 +149,7 @@
   max-width: 300px;
   flex: 1 1 260px;
   gap: 0.2em;
+  justify-content: center;
 }
 .project-card:hover {
   box-shadow: 0 8px 32px rgba(36, 53, 255, 0.18);

@@ -1,0 +1,387 @@
+.student-network-outer {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4em;
+  color: black;
+  background: #f7f9fc;
+}
+
+/* Navbar styles (reuse from AlumniDirectory) */
+.nav-bar {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1em;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  box-shadow: 0 2px 12px rgba(100, 108, 255, 0.07);
+  z-index: 10;
+}
+.nav-bar h4 {
+  font-size: 2em;
+  color: rgb(37, 103, 225);
+  background: transparent;
+}
+.nav-bar nav ul {
+  display: flex;
+  background: transparent;
+  gap: 4em;
+  list-style: none;
+}
+.nav-bar nav ul li {
+  color: rgb(91, 90, 90);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+.nav-bar nav ul li:hover {
+  color: rgb(37, 103, 225);
+}
+.btn-class {
+  display: flex;
+  gap: 2em;
+  background: transparent;
+}
+.btn-class button {
+  background-color: rgb(37, 103, 225);
+  color: white;
+  border: none;
+  padding: 0.7em 1.5em;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-class .login-btn {
+  background-color: white;
+  color: rgb(91, 90, 90);
+  border: 1.5px solid rgb(37, 103, 225);
+}
+.btn-class button:hover {
+  background-color: #2340a0;
+  color: #fff;
+}
+
+/* Banner Section */
+.student-banner {
+  width: 100%;
+  background-color: rgb(37, 103, 225);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 0 2rem 0;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 24px rgba(36, 53, 255, 0.10);
+}
+.student-banner h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+  background: transparent;
+}
+.student-banner-stats {
+  display: flex;
+  gap: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  background: transparent;
+}
+.student-banner-stats span {
+  background: rgba(255,255,255,0.13);
+  padding: 0.5em 1.2em;
+  border-radius: 10px;
+}
+
+/* Search Section */
+.student-search-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.student-search-input {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.85em 1.2em;
+  border-radius: 10px;
+  border: 1.5px solid rgb(37, 103, 225);
+  font-size: 1.08em;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: #fff;
+  color: black;
+}
+.student-search-input:focus {
+  border: 2px solid rgb(37, 103, 225);
+  box-shadow: 0 4px 16px rgba(100, 108, 255, 0.13);
+}
+
+/* Cards Section */
+.student-cards-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  background: transparent;
+}
+
+/* Enhanced Student Cards */
+.student-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.2rem;
+  /* box-shadow: 0 8px 25px rgba(36, 53, 255, 0.08); */
+  transition: all 0.3s ease;
+  border: 1px solid rgb(37, 103, 225);
+  position: relative;
+  min-width: 280px;
+  max-width: 320px;
+  flex: 1 1 280px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.student-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, rgb(37, 103, 225));
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(13, 27, 182, 0.15);
+  border-color:  rgb(37, 103, 225);
+  border: 1px solid rgb(37, 103, 225);
+}
+
+/* Card Header Section */
+.card-header-section {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #f1f5f9;
+  background: transparent;
+}
+
+.student-card-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+}
+
+.student-info {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+}
+
+.student-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.2rem 0;
+  line-height: 1.2;
+  background: transparent;
+}
+
+.student-course {
+  font-size: 0.85rem;
+  color: #667eea;
+  font-weight: 600;
+  margin: 0 0 0.15rem 0;
+  line-height: 1.2;
+  background: transparent;
+}
+
+.student-year-uni {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.2;
+  background: transparent;
+
+}
+
+/* Card Content */
+.card-content {
+  margin-bottom: 1rem;
+  background: transparent;
+}
+
+.skills-section {
+  margin-bottom: 0.8rem;
+  background: transparent;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  background: transparent;
+}
+
+.skill-tag {
+  /* background: white; */
+  border: 1px solid #d5d5d5;
+  color:black;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.skill-tag:hover {
+  transform: scale(1.05);
+}
+
+.interests-section {
+  margin-bottom: 0.8rem;
+  background: transparent;
+}
+
+.interests-text {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.3;
+  background: transparent;
+}
+
+/* Projects Section */
+.projects-section {
+  margin-top: 0.5rem;
+  background: transparent;
+}
+
+.projects-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  color: #475569;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.projects-badge:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transform: translateY(-1px);
+  background: transparent;
+}
+
+.project-icon {
+  font-size: 0.9rem;
+  background: transparent;
+}
+
+.project-count {
+  font-weight: 600;
+  background: transparent;
+}
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.connect-btn {
+  background-color:rgb(37, 103, 225) ;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  /* max-width: 120px; */
+}
+
+.connect-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.student-no-results {
+  width: 100%;
+  text-align: center;
+  color: #4a6cf7;
+  font-size: 1.25rem;
+  opacity: 0.85;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .student-cards-grid {
+    gap: 1rem;
+  }
+  .student-card {
+    min-width: 250px;
+    max-width: 300px;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .student-network-outer {
+    padding: 0;
+  }
+  .student-banner h3 {
+    font-size: 1.5rem;
+  }
+  .student-banner-stats {
+    font-size: 1rem;
+    gap: 1rem;
+  }
+  .student-card {
+    padding: 0.8rem;
+    min-width: 200px;
+    max-width: 100vw;
+  }
+  .student-card-img {
+    width: 45px;
+    height: 45px;
+  }
+  .student-info h3 {
+    font-size: 1rem;
+  }
+  .student-course {
+    font-size: 0.8rem;
+  }
+  .student-year-uni {
+    font-size: 0.75rem;
+  }
+} 
