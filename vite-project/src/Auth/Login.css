@@ -109,18 +109,15 @@
         flex-direction: column;
         overflow-y: scroll;
         gap: 1em;
-        div{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
+       
             input{
                 padding: 1em;
                     background: transparent;
                     border:0.5px solid grey;
                     border-radius: 5px;
-                    color: black;
+                    color:green
             }
-        }
+        
         button{
               background-color: rgb(37, 103, 225);
                 color: white;

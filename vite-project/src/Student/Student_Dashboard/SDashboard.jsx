@@ -1,22 +1,56 @@
-import React, { useState } from 'react'
-import { FaUserAlt } from "react-icons/fa";
-import { FiUsers } from "react-icons/fi";
-import { FaSuitcase } from "react-icons/fa6";
-import { FaSackDollar } from "react-icons/fa6";
-import { ImTree } from "react-icons/im";
-import { FaGraduationCap } from "react-icons/fa";
-import { FaBell } from "react-icons/fa";
-import { MdWavingHand } from "react-icons/md"
-import { IoIosArrowForward } from "react-icons/io";
-import { FiUser } from "react-icons/fi";
-import { PiNetworkThin } from "react-icons/pi";
-import './SDashboard.css'
-import { MdOutlineAttachMoney } from "react-icons/md";
-import { RiGraduationCapLine } from "react-icons/ri";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import api from '../../services/api'; 
 
+// --- CORRECTED ICON IMPORTS ---
+import { FaGraduationCap, FaBell } from "react-icons/fa";
+import { FaSackDollar, FaSuitcase } from "react-icons/fa6";
+import { FiUsers, FiUser } from "react-icons/fi";
 import { BsSuitcaseLg } from "react-icons/bs";
+import { MdWavingHand, MdOutlineAttachMoney } from "react-icons/md";
+import { IoIosArrowForward } from "react-icons/io";
+import { PiNetworkThin } from "react-icons/pi";
+import { RiGraduationCapLine } from "react-icons/ri";
+// --- END OF CORRECTIONS ---
+
+import './SDashboard.css';
+
+
 const SDashboard = () => {
-    const [showAll, setShowAll] = useState(false)
+    const [showAll, setShowAll] = useState(false);
+    const [studentName, setStudentName] = useState(''); 
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchDashboardDetails = async () => {
+            try {
+                const token = localStorage.getItem('studentToken');
+                if (!token) {
+                    navigate('/login');
+                    return;
+                }
+                const response = await api.get('/api/student/dashboard', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                setStudentName(response.data.name);
+            } catch (error) {
+                console.error("Error fetching dashboard data:", error);
+                navigate('/login');
+            }
+        };
+        fetchDashboardDetails();
+    }, [navigate]);
+
+    const handleProfileClick = () => {
+        navigate('/student-profile');
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('studentToken');
+        localStorage.removeItem('user');
+        navigate('/login');
+    };
+
     const messages = [
         "Your mentorship request to John Smith has been accepted!",
         "Your session with Alice is scheduled for tomorrow.",
@@ -27,6 +61,7 @@ const SDashboard = () => {
         "Mentor John has shared new resources.",
     ];
     const visibleMessages = showAll ? messages : messages.slice(0, 6);
+
     return (
         <>
             <div className='student-dashboard-pg'>
@@ -41,39 +76,37 @@ const SDashboard = () => {
                         </ul>
                     </nav>
                     <div className='btn-class'>
-                        <button className='login-btn'>Login</button>
-                        <button>Sign Up</button>
+                        <button onClick={handleLogout} className='login-btn'>Logout</button>
                     </div>
                 </div>
                 <div className='dashboard-content'>
                     <div className='dashboard-left'>
                         <div className='welcome-section'>
-                            <h2>Welcome back,Sarah Jhonson ! <MdWavingHand style={{ background: 'transparent' }} /> </h2>
-                            <div className='active-status'>
-                                <ul>
-                                    <li className='green'>3 active mentorships</li>
-                                    <li className='yellow'>2 project applications pending</li>
-                                    <li className='blue'>your fundraising campaign has recieved 70%</li>
-                                </ul>
-                            </div>
+                            <h2>Welcome back{studentName ? `, ${studentName}` : ''} ! <MdWavingHand style={{ background: 'transparent' }} /> </h2>
+                             <div className='active-status'>
+                                 <ul>
+                                     <li className='green'>3 active mentorships</li>
+                                     <li className='yellow'>2 project applications pending</li>
+                                     <li className='blue'>your fundraising campaign has recieved 70%</li>
+                                 </ul>
+                             </div>
                         </div>
                         <div className='student-features'>
                             <div className='std-profile-card'>
                                 <div className='profile-icon-sec'>
-                                    <p style={{ fontSize: '2em' }}><FiUser style={{ background: 'transparent' ,color:'rgb(37, 103, 225)'}} /></p>
-                                    <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
+                                     <p style={{ fontSize: '2em' }}><FiUser style={{ background: 'transparent' ,color:'rgb(37, 103, 225)'}} /></p>
+                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
                                 </div>
                                 <div>
-                                    <h3>My Profile</h3>
-                                    <p>Update your details, skills & profile</p>
-                                    <button className='blue-btn'>View/Edit Profile</button>
+                                     <h3>My Profile</h3>
+                                     <p>Update your details, skills & profile</p>
+                                     <button className='blue-btn' onClick={handleProfileClick}>View/Edit Profile</button>
                                 </div>
                             </div>
                             <div className='student-mentorship-card'>
                                 <div className='mentorship-icon-sec'>
                                     <p style={{ fontSize: '2em' }}><FiUsers style={{ background: 'transparent' ,color:'green'}} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
-
                                 </div>
                                 <div>
                                     <h3>My Mentorships</h3>
@@ -85,7 +118,6 @@ const SDashboard = () => {
                                 <div className='project-icon-sec'>
                                     <p style={{ fontSize: '2em' }}><BsSuitcaseLg style={{ background: 'transparent',color:' rgb(177, 25, 197)' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
-
                                 </div>
                                 <div>
                                     <h3>Projects & Internships</h3>
@@ -97,7 +129,6 @@ const SDashboard = () => {
                                 <div className='fund-icon-sec'>
                                     <p style={{ fontSize: '2em' }}><MdOutlineAttachMoney style={{ background: 'transparent',color:'orange' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
-
                                 </div>
                                 <div>
                                     <h3>My Fundraisers</h3>
@@ -111,7 +142,6 @@ const SDashboard = () => {
                                 <div className='co-std-icon'>
                                     <p style={{ fontSize: '2em' }}><PiNetworkThin style={{ background: 'transparent',color:'teal' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
-
                                 </div>
                                 <div>
                                     <h3>Co-student Network</h3>
@@ -123,7 +153,6 @@ const SDashboard = () => {
                                 <div className='alumni-icon'>
                                     <p style={{ fontSize: '2em' }}><RiGraduationCapLine style={{ background: 'transparent',color:'violet' }} /></p>
                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
-
                                 </div>
                                 <div>
                                     <h3>Alumni Directory</h3>
@@ -131,7 +160,6 @@ const SDashboard = () => {
                                     <button className='violet-btn'>Browse Alumni</button>
                                 </div>
                             </div>
-
                         </div>
                         <div className='student-recommendations'>
                             <div className='recomendation-title'>
@@ -158,7 +186,6 @@ const SDashboard = () => {
                                     <p className='days-left'>15 days left</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div className='dashboard-right'>
@@ -177,7 +204,6 @@ const SDashboard = () => {
                             <p className='blue-p' onClick={() => setShowAll(!showAll)}>
                                 {showAll ? "View Less Notifications" : "View All Notifications"}
                             </p>
-
                         </div>
                     </div>
                 </div>
@@ -186,4 +212,4 @@ const SDashboard = () => {
     )
 }
 
-export default SDashboard
+export default SDashboard;
