@@ -13,8 +13,6 @@ import Std_profile from './Student/Std_view_profile/Std_profile'
 import { AlumniDirectory } from './AlumniDir';
 import Porject from './Student/Projects/Projects_internships'
 import StudentNetwork from './StudentNetwork/StudentNetwork.jsx'
-
-
 const App = () => {
   return (
     <>

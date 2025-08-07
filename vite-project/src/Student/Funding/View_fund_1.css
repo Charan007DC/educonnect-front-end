@@ -1,0 +1,243 @@
+.view-fund-pg {
+    color: black;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4em;
+    min-height: 100vh;
+
+    .fund-banner {
+        width: 100%;
+        background-color: rgb(37, 103, 225);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 0 2rem 0;
+        margin-bottom: 2.5rem;
+        box-shadow: 0 4px 24px rgba(36, 53, 255, 0.10);
+
+        h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            letter-spacing: 1px;
+            background: transparent;
+        }
+
+        .fund-banner-stats {
+            display: flex;
+            gap: 2.5rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+            background: transparent;
+
+            span {
+                background: rgba(255, 255, 255, 0.13);
+                padding: 0.5em 1.2em;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .fund-search-section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+        background: transparent;
+
+        .fund-search-input {
+            width: 100%;
+            max-width: 420px;
+            padding: 0.85em 1.2em;
+            border-radius: 10px;
+            border: 1.5px solid rgb(37, 103, 225);
+            font-size: 1.08em;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+            background: #fff;
+            color: black;
+
+            :focus {
+                border: 2px solid rgb(37, 103, 225);
+                box-shadow: 0 4px 16px rgba(100, 108, 255, 0.13);
+            }
+        }
+    }
+
+    .fund-cards-grid {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        background: transparent;
+
+        .fund-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.2rem;
+            /* box-shadow: 0 8px 25px rgba(36, 53, 255, 0.08); */
+            transition: all 0.3s ease;
+            border: 1px solid rgb(37, 103, 225);
+            position: relative;
+            min-width: 280px;
+            max-width: 320px;
+            flex: 1 1 280px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            height: 350px;
+            /* align-items: center; */
+            /* justify-content: center; */
+
+            ::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #667eea, rgb(37, 103, 225));
+            }
+
+            .fund-header-section {
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                /* margin-bottom: 1rem; */
+                /* padding-bottom: 0.8rem; */
+                border-bottom: 1px solid #f1f5f9;
+                background: transparent;
+
+                .fund-card-img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 2px solid #667eea;
+                    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+                }
+
+                .fund-info {
+                    flex: 1;
+                    min-width: 0;
+                    background: transparent;
+
+                    p {
+                        font-size: small;
+                        color: #667eea;
+                    }
+
+                    h3 {
+                        font-size: 1.1rem;
+                        font-weight: 700;
+                        color: #1e293b;
+                        margin: 0 0 0.2rem 0;
+                        line-height: 1.2;
+                        background: transparent;
+                    }
+                }
+
+
+            }
+            .card-contents{
+                /* margin-bottom: 1rem; */
+                display: flex;
+                flex-direction: column;
+                background: transparent;
+                gap: 1em;
+
+                .skills-sections{
+                    /* margin-bottom: 0.8rem; */
+                    background: transparent;
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    .skills-grids{
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 0.4rem;
+                        .skill-tag{
+                            background:transparent;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            
+                        }
+                    }
+                    .amount-sections{
+                        width: 80px;
+                        text-align: center;
+                        color: white;
+                        font-weight: 400;
+                        h4{
+                            background-color: rgb(37, 103, 225);
+                            padding: 0.2em;
+                            border-radius: 5px;
+                        }
+                    }
+
+                }
+                .start-date-end-date{
+                    width: 100%;
+                    display: flex;
+                    font-size: small;
+                    justify-content: space-between;
+                    p{
+                        span{
+                            color: rgb(37, 103, 225);
+                        }
+                        color: rgb(73, 71, 71);
+                    }
+                }
+                .team-size-fund{
+                    font-size: small;
+                    p{
+                        display: flex;
+                        gap: 0.5em;
+                        color: rgb(73, 71, 71);;
+                        span{
+                            color:rgb(37, 103, 225);
+                        }
+                    }
+                }
+                .fund-des{
+                    p{
+                        color:rgb(73, 71, 71) ;
+                        font-size:small;
+                    }
+                }
+                .posted-by-sec{
+                    font-size: small;
+                    p{
+                         display: flex;
+                        gap: 0.5em;
+                        color: rgb(73, 71, 71);;
+                        span{
+                            color:rgb(37, 103, 225);
+                        }
+                    }
+                }
+
+
+            }
+            .view-details-btns{
+                width: 100%;
+                background-color:rgb(37, 103, 225);
+                margin-top: 20px;
+                
+
+            }
+        }
+    }
+}

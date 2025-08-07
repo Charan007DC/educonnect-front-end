@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api'; // 1. Import the pre-configured api service
-import './Student_profile.scss'; // Assuming this is your stylesheet
+import './Student_profile.css'; // Assuming this is your stylesheet
 
 // Import your icons
 import { FiGithub } from "react-icons/fi";

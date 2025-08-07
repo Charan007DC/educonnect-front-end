@@ -1,0 +1,355 @@
+.funding-form-pg{
+  color: black;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+  padding-bottom: 4em;
+  /* align-items: center; */
+  .funding-form-content{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    .student-information-div,.project-details-div,.fund-details-div,.purpose-div,.attachments-div,.support-div{
+      padding-left: 2em;
+      padding-right: 2em;
+      padding-top: 2em;
+      padding-bottom: 2em;
+     /* padding-bottom: 2em; */
+     justify-content: center;
+      width: 100%;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      background-color:white;
+      border-radius: 10px;
+      .name-input-box,.year-input-box,.roll-num-input-box,.contact-info-input-box,.project-title-input,.project-category-input,.project-short-des-input,.project-long-des-input,.ask-input,.hashtags-input{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        position: relative;
+        label{
+          background: transparent;
+          position: absolute;
+          top: -0.7em;
+          left: 0.8em;
+          font-size: small;
+          background: white;
+          /* width: 50px; */
+          text-align: center;
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+        }
+        input{
+          padding: 1em;
+          border-radius: 5px;
+          background: transparent;
+          border: 1px solid grey;
+          color:black;
+        }
+        select{
+          padding: 1em;
+          border-radius: 5px;
+          color: grey;
+          background: transparent;
+        }
+      }
+       .branch-dept-input{
+      width: 100%;
+      display: flex;
+      gap: 1em;
+      background: transparent;
+      
+      .branch-input,.dept-input{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+         position: relative;
+        label{
+           background: transparent;
+           top: -0.7em;
+          left: 0.8em;
+          position: absolute;
+          font-size: small;
+          background: white;
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+          
+        }
+        select{
+          color: grey;
+          padding: 1em;
+          border-radius: 5px;
+          background: transparent;
+        }
+      }
+    }
+    }
+    .project-details-div{
+      .project-img-input{
+        width: 100%;
+        background: transparent;
+        div{
+          width: 100%;
+          background: transparent;
+          border: 1px solid black;
+          height:250px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          p{
+            background: transparent;
+          }
+        }
+      }
+      h4{
+        width: 100%;
+        background: transparent;
+      }
+      .start-end-date{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+        background: transparent;
+        .start-date,.end-date{
+          width: 50%;
+          background: transparent;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          label{
+            position: absolute;
+            background: transparent;
+            top: -0.7em;
+            left: 0.8em;
+            font-size: small;
+            background: white;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+          }
+          input{
+            border-radius: 5px;
+            padding: 0.5em;
+            background: transparent;
+            color: grey;
+            border: 1px solid grey;
+            color: black;
+          }
+        }
+      }
+      .team-size-input{
+        width: 100%;
+        display: flex;
+        background: transparent;
+        div{
+          width: 20%;
+          background: transparent;
+          display: flex;
+          gap: 0.5em;
+          label{
+            background: transparent;
+          }
+        }
+      }
+      .mem-role-input{
+        width: 100%;
+        display:flex;
+        gap: 1em;
+        background: transparent;
+        .member-input,.role-input{
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          background: transparent;
+          position: relative;
+          label{
+            background: transparent;
+            position: absolute;
+            top: -0.7em;
+            left: 0.8em;
+            font-size: small;
+            background: white;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+          }
+          input{
+            border-radius: 5px;
+            padding: 1em;
+            background: transparent;
+            color: grey;
+            border: 1px solid grey;
+            color: black;
+          }
+          
+        }
+      }
+    }
+    .fund-details-div{
+      .amout-input{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        position: relative;
+        label{
+          background: transparent;
+          position: absolute;
+          top: -0.7em;
+            left: 0.8em;
+            font-size: small;
+            background: white;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+        }
+        input{
+          padding: 1em;
+          border-radius: 5px;
+          background: transparent;
+          border: 1px solid grey;
+          color: black;
+        }
+      }
+      .expence-plan-input{
+        width: 100%;
+        background: transparent;
+        label{
+          background: transparent;
+        }
+        div{
+          width: 100%;
+          height: 250px;
+          border: 1px solid grey;
+          background: transparent;
+          display: flex;
+          gap: 0.5em;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          p{
+            background: transparent;
+          }
+        }
+      }
+
+    }
+    .purpose-div,.attachments-div{
+      .purpose-input{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        position: relative;
+        label{
+          background: transparent;
+          position: absolute;
+          top: -0.7em;
+            left: 0.8em;
+            font-size: small;
+            background: white;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+        }
+        input{
+          background: transparent;
+          padding: 1em;
+          border-radius: 5px;
+          color: black;
+          border: 1px solid grey;
+        }
+      }
+      .post-achievements-input,.project-proposal-input,.identification-card,.prototype-input,.letter-input-div{
+        width: 100%;
+        background: transparent;
+        label{
+          background: transparent;
+        }
+        div{
+          width: 100%;
+          height: 250px;
+          background: transparent;
+          border: 1px solid grey;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          p{
+            background: transparent;
+          }
+
+        }
+
+      }   
+    }
+   
+
+    
+   .approve-check{
+    padding-left: 0.1em;
+   }
+  }
+  .upload-fund-btn{
+    width: 250px;
+    padding: 1em;
+    color: white;
+    background-color: rgb(37, 103, 225);;
+  }
+  
+}
+.project-category-input,.project-short-des-input,.purpose-input,.ask-input,.hashtags-input{
+  input{
+    height: 100px;
+    
+  }
+}
+.project-long-des-input{
+  input{
+    height: 200px;
+  }
+}
+
+
+
+.hashtags-input{
+  background: transparent;
+}
+.hashtag-tags,.category-tags {
+  margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  background: transparent;
+}
+
+.hashtag-tag {
+  background-color: rgb(37, 103, 225);
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+.project-short-des-input,.project-long-des-input,.ask-input,.hashtags-input,.project-category-input{
+  textarea{
+    background: transparent;
+    height: 150px;
+    padding: 1em;
+    color:black;
+    border-radius: 5px;
+  }
+}
+
