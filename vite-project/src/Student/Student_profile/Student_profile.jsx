@@ -1,14 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import dp from '../../assets/dp.png'
 import { FiGithub } from "react-icons/fi";
 import { HiStar } from "react-icons/hi";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa";
-import './Student_profile.scss'
+import './Student_profile.css'
 import { FaRegEdit } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import { RiShareForwardLine } from "react-icons/ri";
 const Student_profile = () => {
+    const [editable, setEditable] = useState(false)
+    const [profileData, setProfileData] = useState({
+        aboutme: '',
+        projects: [],
+    })
+    const [newProject, setNewProject] = useState({
+        title: '',
+        project_des: '',
+        techStacks: '',
+    })
+    const handleSave = () => {
+        setEditable(false)
+    }
+    const handleAddProject = () => {
+        if (!newProject.title || !newProject.project_des || !newProject.techStacks) {
+            alert("Please fill in all fields");
+            return;
+        }
+
+        const updatedProjects = [...profileData.projects, newProject];
+
+        setProfileData({
+            ...profileData,
+            projects: updatedProjects,
+        });
+
+        setNewProject({ title: "", project_des: "", techStacks: "" }); // clear the form
+    };
+
+
     return (
         <>
             <div className='Std-profile-pg'>
@@ -29,32 +59,50 @@ const Student_profile = () => {
                 </div>
                 <div className='std-profile-banner'>
                     <div className='profile-img-sec'>
-                        <img src={dp} style={{width:'100px',height:'100px'}}/>
+                        <img src={dp} style={{ width: '100px', height: '100px' }} />
                     </div>
                     <div className='std-name-clg'>
                         <h3>Vishal Saravanane</h3>
-                        <p style={{color:'black'}}>Engineering Student-Computer Science Engineering</p>
+                        <p style={{ color: 'black' }}>Engineering Student-Computer Science Engineering</p>
                         <p>Graduating 2025</p>
                         <div className='clg-name-loc'>
                             <p>Smvec</p>
                             <p>Madagadipet</p>
                         </div>
-                        <p style={{color:'black'}}>Passionate CS student focused on AI/ML and sustainable technology. Building the future through code and innovation.</p>
+                        <p style={{ color: 'black' }}>Passionate CS student focused on AI/ML and sustainable technology. Building the future through code and innovation.</p>
                     </div>
                     <div className='profile-btns'>
-                        <button className='edit'><FaRegEdit style={{background:'transparent',color:'white'}}/> Edit Profile</button>
-                        <button className='share-btn' style={{display:'flex',alignItems:'center',gap:'0.5em'}}><RiShareForwardLine style={{background:'transparent',color:'black',fontSize:'1.5em'}}/>Share Profile</button>
+                        <button className='edit' onClick={() => { setEditable(true) }}><FaRegEdit style={{ background: 'transparent', color: 'white' }} /> Edit Profile</button>
+                        <button className='share-btn' style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}><RiShareForwardLine style={{ background: 'transparent', color: 'black', fontSize: '1.5em' }} />Share Profile</button>
                     </div>
                 </div>
                 <div className='std-details'>
                     <div className='std-details-left'>
                         <div className='std-about-me'>
                             <h3>About Me</h3>
-                            <p>I'm a third-year Computer Science student at MIT with a passion for artificial intelligence and machine learning. My goal is to develop technology that can make a positive impact on environmental sustainability. I love collaborating on open-source projects and participating in hackathons. When I'm not coding, you can find me rock climbing or exploring Boston's food scene.</p>
+                            {/* <p>I'm a third-year Computer Science student at MIT with a passion for artificial intelligence and machine learning. My goal is to develop technology that can make a positive impact on environmental sustainability. I love collaborating on open-source projects and participating in hackathons. When I'm not coding, you can find me rock climbing or exploring Boston's food scene.</p> */}
+                            {(editable || profileData.aboutme.length === 0) ? (
+                                <textarea
+                                    placeholder="Write about yourself.."
+                                    value={profileData.aboutme || ''}
+                                    onFocus={() => {
+                                        if (!editable) setEditable(true);  // <-- Automatically turn on edit mode
+                                    }}
+                                    onChange={(e) =>
+                                        setProfileData((prev) => ({
+                                            ...prev,
+                                            aboutme: e.target.value
+                                        }))
+                                    }
+                                />
+                            ) : (
+                                <p>{profileData.aboutme || <em style={{ color: '#aaa' }}>Click edit to add About Me</em>}</p>
+                            )}
+
                         </div>
                         <div className='std-projects'>
                             <h3>Projects</h3>
-                            <div className='individual-project-std'>
+                            {/* <div className='individual-project-std'>
                                 <div className='individual-project-title'>
                                     <h4>EcoTrack - Carbon Footprint Calculator</h4>
                                     <p><FiGithub style={{background:'transparent'}}/></p>
@@ -79,8 +127,53 @@ const Student_profile = () => {
                                     <p>MongoDB</p>
                                     <p>Node.js</p>
                                 </div>
-                            </div>
-                            <p className='view-all-link'>View all Projects</p>
+                            </div> */}
+                            {(editable || profileData.projects.length === 0) && (
+                                <div className='add-project-form'>
+                                    <h3>Add Project</h3>
+                                    <input
+                                        type="text"
+                                        placeholder='Project title'
+                                        value={newProject.title}
+                                        onChange={(e) =>
+                                            setNewProject({ ...newProject, title: e.target.value })
+                                        }
+                                    />
+                                    <textarea
+                                        placeholder='Project description...'
+                                        value={newProject.project_des}
+                                        onChange={(e) =>
+                                            setNewProject({ ...newProject, project_des: e.target.value })
+                                        }
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder='Technologies used (comma separated)'
+                                        value={newProject.techStacks}
+                                        onChange={(e) =>
+                                            setNewProject({ ...newProject, techStacks: e.target.value })
+                                        }
+                                    />
+                                    <button onClick={handleAddProject}>Add</button>
+
+                                </div>
+                            )}
+                            {profileData.projects.length > 0 &&
+                                profileData.projects.map((project, index) => (
+                                    <div key={index} className='individual-project-std'>
+                                        <div className='individual-project-title'>
+                                            <h4>{project.title}</h4>
+                                            <p><FiGithub style={{ background: 'transparent' }} /></p>
+                                        </div>
+                                        <p>{project.project_des}</p>
+                                        <div className='project-stacks'>
+                                            {project.techStacks.split(',').map((stack, i) => (
+                                                <p key={i}>{stack.trim()}</p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+
                         </div>
                         <div className='fundraising-section-std'>
                             <h3>Fundraising Campaigns</h3>
@@ -102,7 +195,7 @@ const Student_profile = () => {
                     <div className='std-details-right'>
                         <div className='skills-card'>
                             <div className='skills-title'>
-                                <p><HiStar  style={{background:'transparent',fontSize:'1.5em'}}/></p>
+                                <p><HiStar style={{ background: 'transparent', fontSize: '1.5em' }} /></p>
                                 <h3>Skills</h3>
                             </div>
                             <div className='domains'>
@@ -116,7 +209,7 @@ const Student_profile = () => {
                         </div>
                         <div className='education-card'>
                             <div className='education-title'>
-                                <p style={{fontSize:'1.5em'}}><RiGraduationCapFill style={{background:'transparent'}}  /></p>
+                                <p style={{ fontSize: '1.5em' }}><RiGraduationCapFill style={{ background: 'transparent' }} /></p>
                                 <h3>Education</h3>
                             </div>
                             <div className='education-details'>
@@ -148,7 +241,9 @@ const Student_profile = () => {
                             </ul>
                         </div>
                     </div>
+
                 </div>
+
                 {/* <div className='connect-links'>
                     <h3>Connect</h3>
                     <div className='links'>
@@ -166,7 +261,8 @@ const Student_profile = () => {
                         </div>
                     </div>
                 </div> */}
-            </div>
+                <button onClick={handleSave}>save</button>
+            </div >
         </>
     )
 }

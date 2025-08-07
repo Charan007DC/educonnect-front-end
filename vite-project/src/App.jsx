@@ -11,6 +11,9 @@ import Login from './Auth/Login'
 import Signup from './Auth/Signup'
 import Porject from './Student/Projects/Projects_internships'
 import StudentNetwork from './StudentNetwork/StudentNetwork.jsx'
+import Fund_form from './Student/Funding/Fund_form.jsx'
+import View_fund_1 from './Student/Funding/View_fund_1.jsx'
+import View_fund_2 from './Student/Funding/View_fund_2.jsx'
 // import SignupStudent from './Login/SignupStudent'
 const App = () => {
   return (
@@ -27,7 +30,9 @@ const App = () => {
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/project' element={<Porject/>}/>
           <Route path='/student-network' element={<StudentNetwork/>}/>
-          
+          <Route path='/funding-form' element={<Fund_form/>}/>
+          <Route path='/view-fund-1' element={<View_fund_1/>}/>
+          <Route path='view-fund-detail' element={<View_fund_2/>}/>
         </Routes>
       </Router>
     </>
