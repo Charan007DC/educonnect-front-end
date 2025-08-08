@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import dp from '../../assets/dp.png'
 import { FiGithub } from "react-icons/fi";
 import { HiStar } from "react-icons/hi";
@@ -7,6 +7,7 @@ import { FaLinkedin } from "react-icons/fa";
 import './Student_profile.css'
 import { FaRegEdit } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
+import api from '../../Apiservices/api'
 import { RiShareForwardLine } from "react-icons/ri";
 const Student_profile = () => {
     const [editable, setEditable] = useState(false)
@@ -19,9 +20,32 @@ const Student_profile = () => {
         project_des: '',
         techStacks: '',
     })
-    const handleSave = () => {
+    const handleSave = async() => {
         setEditable(false)
-    }
+        try{
+            const token=localStorage.getItem('studentToken');
+            if(!token)
+            {
+                alert('login to save changes');
+                return;
+            }
+            await api.put('api/student/profile',
+                {
+                    aboutme:profileData.aboutme,
+                    projects:profileData.projects,
+                },
+                {
+                    headers:{'Authorization':`Bearer ${token}`}
+                }
+            );
+            alert("profile updated successfully");
+            setEditable(false);
+        }
+        catch(err)
+        {
+            alert(err.response?.data?.message||"Failed to save profile");
+        }
+    };
     const handleAddProject = () => {
         if (!newProject.title || !newProject.project_des || !newProject.techStacks) {
             alert("Please fill in all fields");
@@ -37,6 +61,42 @@ const Student_profile = () => {
 
         setNewProject({ title: "", project_des: "", techStacks: "" }); // clear the form
     };
+    const [headerData, setHeaderData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+    useEffect(() => {
+        const fetchHeaderData = async () => {
+            try {
+                const token = localStorage.getItem('studentToken');
+                if (!token) {
+                    setError('Authentication token not found, please login');
+                    setLoading(false);
+                    return;
+                }
+                const response = await api.get('api/student/profile', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                setHeaderData(response.data);
+                
+            }
+            catch (err) {
+                setError(err.response?.data?.message || 'failed to fetch data');
+            }
+            finally {
+                setLoading(false);
+            }
+        };
+        fetchHeaderData();
+    }, [])
+    if (loading) {
+        return <div>Loading profile</div>
+    }
+    if (error) {
+        return <div>{error}</div>
+    }
+    if (!headerData) {
+        return <div>No profile data found</div>
+    }
 
 
     return (
@@ -62,14 +122,17 @@ const Student_profile = () => {
                         <img src={dp} style={{ width: '100px', height: '100px' }} />
                     </div>
                     <div className='std-name-clg'>
-                        <h3>Vishal Saravanane</h3>
-                        <p style={{ color: 'black' }}>Engineering Student-Computer Science Engineering</p>
-                        <p>Graduating 2025</p>
+                        <h3>{headerData.name}</h3>
+                        <p style={{ color: 'black' }}>{headerData.department}</p>
+                        <p>Graduating {headerData.graduationYear}</p>
                         <div className='clg-name-loc'>
-                            <p>Smvec</p>
-                            <p>Madagadipet</p>
+                            <p>{headerData.institution}</p>
+                            <p>{headerData.location || 'location not set'}</p>
                         </div>
-                        <p style={{ color: 'black' }}>Passionate CS student focused on AI/ML and sustainable technology. Building the future through code and innovation.</p>
+                        {/* <p style={{ color: 'black' }}>{profileData.description || 'No description provided.'}</p> */}
+
+                        {/* <p style={{ color: 'black' }}>Passionate CS student focused on AI/ML and sustainable technology. Building the future through code and innovation.</p> */}
+                        
                     </div>
                     <div className='profile-btns'>
                         <button className='edit' onClick={() => { setEditable(true) }}><FaRegEdit style={{ background: 'transparent', color: 'white' }} /> Edit Profile</button>

@@ -14,6 +14,7 @@ import StudentNetwork from './StudentNetwork/StudentNetwork.jsx'
 import Fund_form from './Student/Funding/Fund_form.jsx'
 import View_fund_1 from './Student/Funding/View_fund_1.jsx'
 import View_fund_2 from './Student/Funding/View_fund_2.jsx'
+import ProtectedRoute from './Auth/Protected.jsx'
 // import SignupStudent from './Login/SignupStudent'
 const App = () => {
   return (
@@ -21,18 +22,23 @@ const App = () => {
       <Router>
         <Routes>
           <Route path='/' element={<Landing/>}/>
-          <Route path='/aboutUs' element={<AboutUs/>}/>
-          <Route path='/Student-dashboard' element={<SDashboard/>}/>
-          <Route path='/Student-profile' element={<Student_profile/>}/>
-          <Route path='/view-edit-profile' element={<Std_profile/>}/>
-          <Route path='/alumni-directory' element={<AlumniDirectory/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
-          <Route path='/project' element={<Porject/>}/>
-          <Route path='/student-network' element={<StudentNetwork/>}/>
-          <Route path='/funding-form' element={<Fund_form/>}/>
-          <Route path='/view-fund-1' element={<View_fund_1/>}/>
-          <Route path='view-fund-detail' element={<View_fund_2/>}/>
+          <Route path='/aboutUs' element={<AboutUs/>}/>
+
+          <Route element={<ProtectedRoute/>}>
+            <Route path='/Student-dashboard' element={<SDashboard/>}/>
+            <Route path='/Student-profile' element={<Student_profile/>}/>
+            <Route path='/view-edit-profile' element={<Std_profile/>}/>
+            <Route path='/alumni-directory' element={<AlumniDirectory/>}/>
+          
+          
+            <Route path='/project' element={<Porject/>}/>
+            <Route path='/student-network' element={<StudentNetwork/>}/>
+            <Route path='/funding-form' element={<Fund_form/>}/>
+            <Route path='/view-fund-1' element={<View_fund_1/>}/>
+            <Route path='view-fund-detail' element={<View_fund_2/>}/>
+          </Route>
         </Routes>
       </Router>
     </>
