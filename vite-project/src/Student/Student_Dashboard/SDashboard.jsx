@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaUserAlt } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { FaSuitcase } from "react-icons/fa6";
@@ -13,10 +13,13 @@ import { PiNetworkThin } from "react-icons/pi";
 import './SDashboard.css'
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { RiGraduationCapLine } from "react-icons/ri";
-
+import api from '../../Apiservices/api'
 import { BsSuitcaseLg } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 const SDashboard = () => {
-    const [showAll, setShowAll] = useState(false)
+    const [showAll, setShowAll] = useState(false);
+    const [studentName,setStudentName]=useState(" ");
+    const navigate=useNavigate();
     const messages = [
         "Your mentorship request to John Smith has been accepted!",
         "Your session with Alice is scheduled for tomorrow.",
@@ -27,6 +30,31 @@ const SDashboard = () => {
         "Mentor John has shared new resources.",
     ];
     const visibleMessages = showAll ? messages : messages.slice(0, 6);
+    useEffect(()=>{
+        const fetchDashboardDetails=async()=>{
+            try{
+                const token=localStorage.getItem('studentToken');
+                if(!token)
+                {
+                    navigate('/login');
+                    return;
+                }
+                const response=await api.get('api/student/dashboard',{
+                    headers:{'Authorization':`Bearer ${token}`}
+                });
+                setStudentName(response.data.name);
+            }
+            catch(error)
+            {
+                console.error("error fetching dashboard data");
+                navigate('/login');
+            }
+        };
+        fetchDashboardDetails();
+    },[navigate]);
+    const handleProfileClick=()=>{
+        navigate('/student-profile');
+    }
     return (
         <>
             <div className='student-dashboard-pg'>
@@ -48,7 +76,7 @@ const SDashboard = () => {
                 <div className='dashboard-content'>
                     <div className='dashboard-left'>
                         <div className='welcome-section'>
-                            <h2>Welcome back,Sarah Jhonson ! <MdWavingHand style={{ background: 'transparent' }} /> </h2>
+                            <h2>Welcome back {studentName?`, ${studentName}`:''}! <MdWavingHand style={{ background: 'transparent' }} /> </h2>
                             <div className='active-status'>
                                 <ul>
                                     <li className='green'>3 active mentorships</li>

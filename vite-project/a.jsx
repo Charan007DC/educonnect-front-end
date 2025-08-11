@@ -1,65 +1,70 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../services/api'; // 1. Import the pre-configured api service
-import './Student_profile.css'; // Assuming this is your stylesheet
+import { useNavigate } from 'react-router-dom';
+import api from '../../services/api'; 
 
-// Import your icons
-import { FiGithub } from "react-icons/fi";
-import { HiStar } from "react-icons/hi";
-import { RiGraduationCapFill } from "react-icons/ri";
-import { FaLinkedin } from "react-icons/fa";
-import { FaRegEdit } from "react-icons/fa";
-import { RiShareForwardLine } from "react-icons/ri";
+// --- CORRECTED ICON IMPORTS ---
+import { FaGraduationCap, FaBell } from "react-icons/fa";
+import { FaSackDollar, FaSuitcase } from "react-icons/fa6";
+import { FiUsers, FiUser } from "react-icons/fi";
+import { BsSuitcaseLg } from "react-icons/bs";
+import { MdWavingHand, MdOutlineAttachMoney } from "react-icons/md";
+import { IoIosArrowForward } from "react-icons/io";
+import { PiNetworkThin } from "react-icons/pi";
+import { RiGraduationCapLine } from "react-icons/ri";
+// --- END OF CORRECTIONS ---
+
+import './SDashboard.css';
 
 
-const Student_profile = () => {
-    const [profileData, setProfileData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+const SDashboard = () => {
+    const [showAll, setShowAll] = useState(false);
+    const [studentName, setStudentName] = useState(''); 
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchProfileData = async () => {
+        const fetchDashboardDetails = async () => {
             try {
                 const token = localStorage.getItem('studentToken');
                 if (!token) {
-                    setError('Authentication token not found. Please log in.');
-                    setLoading(false);
+                    navigate('/login');
                     return;
                 }
-
-                // 2. Use the 'api' service to make the request
-                const response = await api.get('/api/student/profile', {
+                const response = await api.get('/api/student/dashboard', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
-                // 3. With axios, the data is in response.data
-                setProfileData(response.data);
-
-            } catch (err) {
-                setError(err.response?.data?.message || 'Failed to fetch profile data.');
-            } finally {
-                setLoading(false);
+                setStudentName(response.data.name);
+            } catch (error) {
+                console.error("Error fetching dashboard data:", error);
+                navigate('/login');
             }
         };
+        fetchDashboardDetails();
+    }, [navigate]);
 
-        fetchProfileData();
-    }, []);
+    const handleProfileClick = () => {
+        navigate('/student-profile');
+    };
 
-    if (loading) {
-        return <div>Loading profile...</div>;
-    }
+    const handleLogout = () => {
+        localStorage.removeItem('studentToken');
+        localStorage.removeItem('user');
+        navigate('/login');
+    };
 
-    if (error) {
-        return <div style={{ color: 'red' }}>Error: {error}</div>;
-    }
+    const messages = [
+        "Your mentorship request to John Smith has been accepted!",
+        "Your session with Alice is scheduled for tomorrow.",
+        "Feedback received from mentor James.",
+        "New mentorship match found: Sarah L.",
+        "Reminder: Your session with Mark is today at 4PM.",
+        "Mentorship request to Maya is pending.",
+        "Mentor John has shared new resources.",
+    ];
+    const visibleMessages = showAll ? messages : messages.slice(0, 6);
 
-    if (!profileData) {
-        return <div>No profile data found.</div>;
-    }
-
-    // This is your original UI, now populated with dynamic data
     return (
         <>
-            <div className='Std-profile-pg'>
+            <div className='student-dashboard-pg'>
                 <div className='nav-bar'>
                     <h4>ConnectE</h4>
                     <nav>
@@ -71,111 +76,134 @@ const Student_profile = () => {
                         </ul>
                     </nav>
                     <div className='btn-class'>
-                        <button className='login-btn'>Login</button>
-                        <button>Sign Up</button>
+                        <button onClick={handleLogout} className='login-btn'>Logout</button>
                     </div>
                 </div>
-                <div className='std-profile-banner'>
-                    <div className='profile-img-sec'>
-                        <img 
-                            src={profileData.profilePicture || 'https://placehold.co/100x100/EFEFEF/AAAAAA&text=No+Image'} 
-                            alt="Profile"
-                            style={{width:'100px',height:'100px', borderRadius: '50%'}}
-                        />
-                    </div>
-                    <div className='std-name-clg'>
-                        <h3>{profileData.name}</h3>
-                        <p style={{color:'black'}}>{profileData.department}</p>
-                        <p>Graduating {profileData.graduationYear}</p>
-                        <div className='clg-name-loc'>
-                            <p>{profileData.institution}</p>
-                            <p>{profileData.location || 'Location not set'}</p>
+                <div className='dashboard-content'>
+                    <div className='dashboard-left'>
+                        <div className='welcome-section'>
+                            <h2>Welcome back{studentName ? `, ${studentName}` : ''} ! <MdWavingHand style={{ background: 'transparent' }} /> </h2>
+                             <div className='active-status'>
+                                 <ul>
+                                     <li className='green'>3 active mentorships</li>
+                                     <li className='yellow'>2 project applications pending</li>
+                                     <li className='blue'>your fundraising campaign has recieved 70%</li>
+                                 </ul>
+                             </div>
                         </div>
-                        <p style={{color:'black'}}>{profileData.description || 'No description provided.'}</p>
-                    </div>
-                    <div className='profile-btns'>
-                        <button className='edit'><FaRegEdit style={{background:'transparent',color:'white'}}/> Edit Profile</button>
-                        <button className='share-btn' style={{display:'flex',alignItems:'center',gap:'0.5em'}}><RiShareForwardLine style={{background:'transparent',color:'black',fontSize:'1.5em'}}/>Share Profile</button>
-                    </div>
-                </div>
-                <div className='std-details'>
-                    <div className='std-details-left'>
-                        <div className='std-about-me'>
-                            <h3>About Me</h3>
-                            <p>{profileData.about || 'No information provided.'}</p>
-                        </div>
-                        <div className='std-projects'>
-                            <h3>Projects</h3>
-                            {profileData.projects?.length > 0 ? (
-                                profileData.projects.map((project, index) => (
-                                    <div key={index} className='individual-project-std'>
-                                        <div className='individual-project-title'>
-                                            <h4>{project.title}</h4>
-                                            <a href={project.link} target="_blank" rel="noopener noreferrer"><FiGithub style={{background:'transparent'}}/></a>
-                                        </div>
-                                        <p>{project.description}</p>
-                                        <div className='project-stacks'>
-                                            {project.technologies?.map(tech => <p key={tech}>{tech}</p>)}
-                                        </div>
-                                    </div>
-                                ))
-                            ) : (
-                                <p>No projects listed.</p>
-                            )}
-                        </div>
-                        <div className='fundraising-section-std'>
-                            <h3>Fundraising Campaigns</h3>
-                             {profileData.fundraisingCampaigns?.length > 0 ? (
-                                profileData.fundraisingCampaigns.map((campaign, index) => (
-                                <div key={index} className='a'>
-                                    <h4>{campaign.title}</h4>
-                                    <p>{campaign.description}</p>
-                                    <div className='progress-bar'>
-                                        <div className='names'>
-                                            <p>Raised: ${campaign.currentAmount}</p>
-                                            <p>Goal: ${campaign.goalAmount}</p>
-                                        </div>
-                                        <hr />
-                                    </div>
+                        <div className='student-features'>
+                            <div className='std-profile-card'>
+                                <div className='profile-icon-sec'>
+                                     <p style={{ fontSize: '2em' }}><FiUser style={{ background: 'transparent' ,color:'rgb(37, 103, 225)'}} /></p>
+                                     <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
                                 </div>
-                                ))
-                             ) : (
-                                <p>No fundraising campaigns listed.</p>
-                             )}
+                                <div>
+                                     <h3>My Profile</h3>
+                                     <p>Update your details, skills & profile</p>
+                                     <button className='blue-btn' onClick={handleProfileClick}>View/Edit Profile</button>
+                                </div>
+                            </div>
+                            <div className='student-mentorship-card'>
+                                <div className='mentorship-icon-sec'>
+                                    <p style={{ fontSize: '2em' }}><FiUsers style={{ background: 'transparent' ,color:'green'}} /></p>
+                                    <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
+                                </div>
+                                <div>
+                                    <h3>My Mentorships</h3>
+                                    <p>Manage your mentor connections & requests</p>
+                                    <button className='green-btn'>View Mentors</button>
+                                </div>
+                            </div>
+                            <div className='project-cards'>
+                                <div className='project-icon-sec'>
+                                    <p style={{ fontSize: '2em' }}><BsSuitcaseLg style={{ background: 'transparent',color:' rgb(177, 25, 197)' }} /></p>
+                                    <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
+                                </div>
+                                <div>
+                                    <h3>Projects & Internships</h3>
+                                    <p>Discover opportunities posted by alumni</p>
+                                    <button className='purple-btn'>Browse Oppurtunities</button>
+                                </div>
+                            </div>
+                            <div className='fund-card'>
+                                <div className='fund-icon-sec'>
+                                    <p style={{ fontSize: '2em' }}><MdOutlineAttachMoney style={{ background: 'transparent',color:'orange' }} /></p>
+                                    <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
+                                </div>
+                                <div>
+                                    <h3>My Fundraisers</h3>
+                                    <p>Track your event funding campaigns</p>
+                                    <button className='orange-btn'>
+                                        View/Create Fundraiser
+                                    </button>
+                                </div>
+                            </div>
+                            <div className='co-std-card'>
+                                <div className='co-std-icon'>
+                                    <p style={{ fontSize: '2em' }}><PiNetworkThin style={{ background: 'transparent',color:'teal' }} /></p>
+                                    <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
+                                </div>
+                                <div>
+                                    <h3>Co-student Network</h3>
+                                    <p>Connect with classmates for collaborations</p>
+                                    <button className='teal-btn'>Find Students</button>
+                                </div>
+                            </div>
+                            <div className='alumni-card-1'>
+                                <div className='alumni-icon'>
+                                    <p style={{ fontSize: '2em' }}><RiGraduationCapLine style={{ background: 'transparent',color:'violet' }} /></p>
+                                    <p style={{ fontSize: '1.5em' }}><IoIosArrowForward style={{ background: 'transparent' }} /></p>
+                                </div>
+                                <div>
+                                    <h3>Alumni Directory</h3>
+                                    <p>Explore profiles of successful alumni</p>
+                                    <button className='violet-btn'>Browse Alumni</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='student-recommendations'>
+                            <div className='recomendation-title'>
+                                <h3>Recommended Title</h3>
+                                <p>Personalized opportunities based on your profile</p>
+                            </div>
+                            <div className='recomendation-cards'>
+                                <div className='rec-card-1'>
+                                    <h4>Mobile App Development</h4>
+                                    <p>TechStart Inc</p>
+                                    <p className='days-left'>15 days left</p>
+                                </div>
+                                <div className='rec-card-1'>
+                                    <h4>Coding Bootcamp for underprevieleged</h4>
+                                    <p>Goal : $5000</p>
+                                    <p>
+                                        Raised : $5000
+                                    </p>
+                                    <hr />
+                                </div>
+                                <div className='rec-card-1'>
+                                    <h4>Mobile App Development</h4>
+                                    <p>TechStart Inc</p>
+                                    <p className='days-left'>15 days left</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className='std-details-right'>
-                        <div className='skills-card'>
-                            <div className='skills-title'>
-                                <p><HiStar style={{background:'transparent',fontSize:'1.5em'}}/></p>
-                                <h3>Skills</h3>
-                            </div>
-                            <div className='domains'>
-                                {profileData.skills?.length > 0 ? profileData.skills.map(skill => <p key={skill}>{skill}</p>) : <p>No skills listed.</p>}
-                            </div>
+                    <div className='dashboard-right'>
+                        <div className='recent-activity-title'>
+                            <p style={{ fontSize: '1.5em', background: 'transparent' }}><FaBell style={{ background: 'transparent' }} /></p>
+                            <h3>Recent Activity</h3>
                         </div>
-                        <div className='education-card'>
-                            <div className='education-title'>
-                                <p style={{fontSize:'1.5em'}}><RiGraduationCapFill style={{background:'transparent'}} /></p>
-                                <h3>Education</h3>
-                            </div>
-                            <div className='education-details'>
-                                <p>{profileData.department}</p>
-                                <p>{profileData.institution}</p>
-                                <p>Class of {profileData.graduationYear}</p>
-                            </div>
-                        </div>
-                        <div className='academic-intrest'>
-                            <h3>Academic Interests</h3>
-                            <div className='intrested-areas'>
-                                {profileData.academicInterests?.length > 0 ? profileData.academicInterests.map(interest => <p key={interest}>{interest}</p>) : <p>No interests listed.</p>}
-                            </div>
-                        </div>
-                        <div className='Looking-for'>
-                            <h3>Looking For</h3>
-                            <ul>
-                               {profileData.lookingFor?.length > 0 ? profileData.lookingFor.map(item => <li key={item}>{item}</li>) : <li>Not specified.</li>}
-                            </ul>
+                        <div className='recents'>
+                            {visibleMessages.map((msg, index) => (
+                                <div key={index} className='first-info'>
+                                    <p>{msg}</p>
+                                    <p className='hrs-ago'>2 hours ago</p>
+                                    <hr />
+                                </div>
+                            ))}
+                            <p className='blue-p' onClick={() => setShowAll(!showAll)}>
+                                {showAll ? "View Less Notifications" : "View All Notifications"}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -184,4 +212,4 @@ const Student_profile = () => {
     )
 }
 
-export default Student_profile;
+export default SDashboard;

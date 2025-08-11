@@ -1,0 +1,390 @@
+.view-fund-2-pg{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    color: black;
+    height: 100vh;
+    .funding-content{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        /* gap: 2em; */
+        height: 100%;
+        overflow-y: scroll;
+
+        .fund-left{
+            width: 25%;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            border-right: 0.5px solid grey;
+            gap:2em;
+            align-items: center;
+            /* height:100vh; */
+            height: 100%;
+            overflow-y: scroll;
+            
+            input{
+                width: 95%;
+                padding: 1em;
+                border-radius: 10px;
+                border:1px solid grey;
+            }
+            .fund-card{
+                width: 100%;
+                display: grid;
+                grid-template-columns: 70px 1fr auto;
+                gap: 1em;
+                min-height: 150px;
+                padding-bottom: 1em;
+                border-bottom: 0.5px solid grey;
+                
+
+                .main-img{
+                    /* height: 70px; */
+                    height:60px;
+                    width: 60px;
+                    border-radius:10px;
+                }
+                .fund-card-details{
+                    display: flex;
+                    flex-direction: column;
+                    width:100%;
+                    gap: 1em;
+                    
+                    h4{
+                        font-size: medium;
+                        
+                    }
+                    p{
+                        font-size: x-small;
+                        max-width: 70px;
+                        
+                    }
+                    
+                    .stat{
+                        border: 1px solid rgb(37, 103, 225);
+                        text-align: center;
+                        background-color: rgb(37, 103, 225);
+                        color: white;
+                        padding: 0.3em;
+                        border-radius: 5px;
+                    }
+
+                }
+                .members-img{
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1em;
+                  align-items: end;
+                  justify-content: space-between;
+                  .me-img{
+                    display: flex;
+                    gap: 1em;
+                    .mem{
+                    width:30px;
+                    height: 30px;
+                    border-radius: 50%;
+                  }
+                 
+                  }
+                   button{
+                    background-color:  rgb(37, 103, 225);
+                     color: white;
+                     width: 100px;
+                  }
+                  
+                 
+                }
+                
+            }
+            
+        }
+        .fund-mid{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+            padding: 2em;
+            border-right: 0.5px solid grey;
+            height: 100%;
+            overflow-y: scroll;
+            .fund-project-head{
+                width: 100%;
+                gap: 1em;
+                display: flex;
+                img{
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 5px;
+                }
+                .fund-project-title{
+                    p{
+                        color: grey;
+                    }
+                }
+                .st{
+                    margin-left: 20em;
+                    
+                }
+            }
+            .fund-mid-description{
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                h3{
+                    color: rgb(57, 57, 57);
+                }
+                p{
+                    color:rgb(65, 65, 65);;
+                }
+            }
+            .fund-mid-details{
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                .fund-start-end-details{
+                    display: flex;
+                    justify-content: space-between;
+                    .fund-start,.fund-end,.fun-bud,.fund-obt{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.3em;
+                        .ic{
+                            /* border: 1px solid black; */
+                            padding: 0.8em;
+                            display: flex;
+                            align-items: center;
+                            color: green;
+                            background: transparent;
+                            border-radius: 5px;
+                            background-color: rgb(200, 234, 200);
+                            
+                        }
+                        .ac{
+                             padding: 0.8em;
+                            display: flex;
+                            align-items: center;
+                            color: red;
+                            background: transparent;
+                            border-radius: 5px;
+                            background-color: rgb(234, 200, 200);
+                            
+                        }
+                        .bc{
+                             padding: 0.8em;
+                            display: flex;
+                            align-items: center;
+                            color:purple;
+                            background: transparent;
+                            border-radius: 5px;
+                            background-color: rgb(227, 200, 234);
+                        }
+                        .cc{
+                             padding: 0.8em;
+                            display: flex;
+                            align-items: center;
+                            color: orange;
+                            background: transparent;
+                            border-radius: 5px;
+                            background-color: rgb(246, 243, 178);
+                        }
+                        div{
+                            p{
+                                color: grey;
+                                font-size: small;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            .fund-mid-support{
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                .support-hashtag{
+                    display: flex;
+                    gap: 1em;
+                    p{
+                        /* border: 1px solid black; */
+                        padding: 0.4em;
+                        background-color: rgb(37, 103, 225);
+                        color: white;
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .fund-mid-achievements{
+                display: flex;
+                flex-direction: column;
+                div{
+                    border: 1px solid black;
+                    height: 30px;
+                    width: 200px;
+                }
+            }
+            .fund-mid-comments{
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                .comment-text{
+                    width: 95%;
+                    height: 200px;
+                    border: 1px solid grey;
+                    padding: 0.5em;
+                    textarea{
+                        height: 68%;
+                        width: 95%;
+                        border-bottom: none;
+                        border: none;
+                    }
+                    .comment-btn-opt-area{
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-top: 1em;
+                        button{
+                            width: 100px;
+                            height: 30px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            font-size: smaller;
+                            background-color: rgb(37, 103, 225) ;
+                        }
+                    }
+
+                }
+            }
+
+        }
+        .fund-right{
+            width: 25%;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: scroll;
+            .fund-owner-profile{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                padding-bottom: 1em;
+                border-bottom: 0.5px solid grey;
+                .fund-owner-header{
+                    display: flex;
+                    align-items: start;
+                    gap: 0.5em;
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                    }
+                    .fund-owner-name{
+                        p{  font-size: small;
+                            span{
+                                color: rgb(37, 103, 225) ;;
+                            }
+                        }
+                    }
+                    .y{
+                        color: rgb(37, 103, 225) ;
+                        margin-left: 3em;
+                    }
+                }
+                .owner-stack{
+                    /* width: 100%; */
+                    display: flex;
+                    gap: 1em;
+                    p{
+                        font-size: small;
+                        border: 1px solid grey;
+                        padding: 0.2em;
+                        border-radius: 5px;
+                        width: 60px;
+                        text-align: center;
+                    }
+                }
+                .owner-bio-batch{
+                    display: flex;
+                    flex-direction: column;
+                    width: 65%;
+                    p{
+                        font-size: small;
+                        color: rgb(108, 107, 107);
+                    }
+                }
+                .owner-view-profile{
+                    width: 100%;
+                    display: flex;
+                    justify-content: end;
+                    button{
+                        background-color:rgb(37, 103, 225) ;
+                        font-size: small;
+                    }
+                }
+            }
+            .fund-members-list{
+                padding-top: 1em;  
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                border-bottom: 0.5px solid grey;
+                padding-bottom: 1em;
+                .member-1-profile{
+                    display: flex;
+                    justify-content: space-between;
+                    .w{
+                        display: flex;
+                        gap: 1em;
+                        /* align-items: start; */
+                        justify-content: start;
+                        img{
+                            border-radius: 50%;
+                            width: 50px;
+                            height: 50px;
+                        }
+                        .member-name{
+                            .owner-role{
+                                color: grey;
+                            }
+                        }
+                    }
+                }
+            }
+            .fund-right-attachments{
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                .attachment-div{
+                    display: flex;
+                    justify-content: space-between;
+                    .z{
+                        display: flex;
+                        justify-content:center;
+                        gap: 1em;
+                        .n{
+                            border: 1px solid black;
+                            display: flex;
+                            align-items: center;
+                            padding: 0.5em;
+                            font-size: larger;
+                            height: 20px;
+                        }
+                        
+                    }
+                    }
+                }
+            }
+
+        }
+    }
