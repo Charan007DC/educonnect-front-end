@@ -1,0 +1,100 @@
+.project-form-container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    color: black;
+    gap: 2em;
+    padding-bottom: 2em;
+    h1{
+        color: rgb(37, 103, 225);
+    }
+    .project-form{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        /* border: 1px solid black; */
+        padding: 1em;
+        width: 80%;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        
+        section{
+            h2{
+                background-color: white;
+                text-decoration: dotted;
+                text-decoration-color: black;
+            }
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            background-color: white;
+            input,select,textarea{
+                padding: 0.8em;
+                border-radius: 5px;
+                border:1px solid grey;
+                color: grey;
+                background-color: white;
+            }
+            .s-des{
+                height: 100px;
+            }
+            .l-des{
+                height: 200px;
+            }
+            .date-section{
+                display: flex;
+                align-items: center;
+                gap: 2em;
+                background-color: white;
+                label{
+                    align-items: center;
+                    display: flex;
+                    gap: 1em;
+                    background-color: white;
+                }
+
+            }
+            .seeking-members{
+                background: transparent;
+                label{
+                    display: flex;
+                    gap:0.5em;
+                    background: transparent;
+                }
+            }
+            .radio-group{
+                display: flex;
+                gap: 2em;
+                background-color: white;
+                label{
+                    display: flex;
+                    gap: 0.5em;
+                    background-color: white;
+                }
+            }
+            .team-member{
+                display: flex;
+                gap: 2em;
+                width: 100%;
+                background-color: white;
+                input{
+                    width: 50%;
+                    background-color: white;
+                }
+            }
+            button{
+                background-color:rgb(37, 103, 225) ;
+                
+            }
+        }
+        .checkbox{
+            background-color: transparent;
+        }
+        button{
+            background-color: rgb(37, 103, 225);
+        }
+    }
+}

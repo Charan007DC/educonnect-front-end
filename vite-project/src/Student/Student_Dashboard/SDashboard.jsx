@@ -20,6 +20,7 @@ const SDashboard = () => {
     const [showAll, setShowAll] = useState(false);
     const [studentName,setStudentName]=useState(" ");
     const navigate=useNavigate();
+
     const messages = [
         "Your mentorship request to John Smith has been accepted!",
         "Your session with Alice is scheduled for tomorrow.",
@@ -94,7 +95,7 @@ const SDashboard = () => {
                                 <div>
                                     <h3>My Profile</h3>
                                     <p>Update your details, skills & profile</p>
-                                    <button className='blue-btn'>View/Edit Profile</button>
+                                    <button className='blue-btn' onClick={handleProfileClick}>View/Edit Profile</button>
                                 </div>
                             </div>
                             <div className='student-mentorship-card'>
