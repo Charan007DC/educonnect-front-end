@@ -67,9 +67,12 @@ const ProjectForm = () => {
       technologies,
       projectfor: formData.projectFor.trim(),
       teamtype: formData.teamType,
-      teammembers: formData.teamMembers,
       seekingmembers: formData.seekingMembers,
     };
+    if(formData.teamType=='Team')
+    {
+      payload.teammembers=formData.teamMembers
+    }
 
     try {
       await api.post("api/projects/create", payload, {
