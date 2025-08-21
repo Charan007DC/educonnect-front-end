@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { RiFolderUploadLine } from "react-icons/ri";
 import "./ProjectForm.css";
 import api from '../../Apiservices/api';
-
+import { MdOutlineUploadFile } from "react-icons/md";
 const ProjectForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -43,7 +43,7 @@ const ProjectForm = () => {
   const addTeamMember = () => {
     setFormData((prev) => ({
       ...prev,
-      teamMembers: [...prev.teamMembers, { name: "", role: "" }],
+      teamMembers: [...prev.teamMembers, { name: "", role: "", email: "" }],
     }));
   };
 
@@ -69,9 +69,8 @@ const ProjectForm = () => {
       teamtype: formData.teamType,
       seekingmembers: formData.seekingMembers,
     };
-    if(formData.teamType=='Team')
-    {
-      payload.teammembers=formData.teamMembers
+    if (formData.teamType == 'Team') {
+      payload.teammembers = formData.teamMembers
     }
 
     try {
@@ -153,6 +152,14 @@ const ProjectForm = () => {
             value={formData.technologiesInput}
             onChange={handleChange}
           />
+          
+            
+            <div className="upload-image">
+              <p><MdOutlineUploadFile /></p>
+              <p>Upload project thumbnail</p>
+            </div>
+          
+
           <select name="projectFor" onChange={handleChange}>
             <option value="">Select project for</option>
             <option value="Personal">Personal</option>
@@ -223,6 +230,8 @@ const ProjectForm = () => {
                     value={member.role}
                     onChange={(e) => handleTeamMemberChange(idx, "role", e.target.value)}
                   />
+                  <input type="text" alue={member.email}
+                    onChange={(e) => handleTeamMemberChange(idx, "email", e.target.value)} placeholder="Add team member email" />
                 </div>
               ))}
               <button type="button" onClick={addTeamMember} className="add-member-btn">
@@ -231,6 +240,16 @@ const ProjectForm = () => {
             </>
           )}
         </section>
+        <section>
+          <div className="attachment-section">
+            <h2>Attachments</h2>
+            <div className="attachments-upload-section">
+              <p><MdOutlineUploadFile /></p>
+              <p>Upload your files here</p>
+            </div>
+          </div>
+        </section>
+
 
         <div className="checkbox">
           <input type="checkbox" required /> I confirm all information is accurate.

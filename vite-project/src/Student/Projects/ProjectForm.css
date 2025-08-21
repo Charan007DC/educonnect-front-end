@@ -89,6 +89,13 @@
                 background-color:rgb(37, 103, 225) ;
                 
             }
+            .attachment-section{
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                
+            }
+            
         }
         .checkbox{
             background-color: transparent;
@@ -97,4 +104,43 @@
             background-color: rgb(37, 103, 225);
         }
     }
+}
+
+.attachment-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background: transparent;
+}
+
+.attachments-upload-section,.upload-image {
+  width: 100%;
+  
+  height: 200px;
+  border: 2px dashed grey;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* background-color: #f8faff; */
+  color: #2567e1;
+}
+
+.attachments-upload-section:hover {
+  background-color: #eef4ff;
+  border-color: #174eb7;
+}
+
+.attachments-upload-section p,.upload-image p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.attachments-upload-section svg {
+  font-size: 2rem;
 }

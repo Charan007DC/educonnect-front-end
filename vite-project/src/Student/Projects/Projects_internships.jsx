@@ -1,91 +1,53 @@
-import React, { useState } from 'react'
-import './Project_internships.css'
-
-const projectData = [
-  {
-    id: 1,
-    title: 'React Portfolio Website',
-    type: 'Project',
-    company: 'Freelance',
-    postedBy: 'Alex Chen',
-    description: 'Build a personal portfolio website using React.js and modern CSS.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=256&h=256&facepad=2',
-    stack: ['React', 'CSS', 'JavaScript'],
-    duration: '2 weeks', // TEST DURATION
-  },
-  {
-    id: 2,
-    title: 'Summer Internship - Tesla',
-    type: 'Internship',
-    company: 'Tesla',
-    postedBy: 'Sarah Johnson',
-    description: 'Work with the Tesla design team on real-world engineering problems.',
-    image: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=256&h=256&facepad=2',
-    stack: ['SolidWorks', 'AutoCAD', 'Python'],
-    duration: '3 months',
-  },
-  {
-    id: 3,
-    title: 'Data Science Bootcamp',
-    type: 'Project',
-    company: 'Facebook',
-    postedBy: 'Priya Singh',
-    description: 'Participate in a bootcamp to learn data science and machine learning.',
-    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=256&h=256&facepad=2',
-    stack: ['Python', 'Pandas', 'Machine Learning'],
-    duration: null,
-  },
-  {
-    id: 4,
-    title: 'Frontend Developer Internship',
-    type: 'Internship',
-    company: 'Apple',
-    postedBy: 'Emily Carter',
-    description: 'Join Apple as a frontend intern and work on UI/UX improvements.',
-    image: 'https://images.unsplash.com/photo-1519340333755-c1aa5571fd46?auto=format&fit=facearea&w=256&h=256&facepad=2',
-    stack: ['HTML', 'CSS', 'JavaScript', 'Figma'],
-    duration: '6 months',
-  },
-  {
-    id: 5,
-    title: 'React Portfolio Website',
-    type: 'Project',
-    company: 'Freelance',
-    postedBy: 'Alex Chen',
-    description: 'Build a personal portfolio website using React.js and modern CSS.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=256&h=256&facepad=2',
-    stack: ['React', 'CSS', 'JavaScript'],
-    duration: '2 weeks', // TEST DURATION
-  },
-  {
-    id: 6,
-    title: 'React Portfolio Website',
-    type: 'Project',
-    company: 'Freelance',
-    postedBy: 'Alex Chen',
-    description: 'Build a personal portfolio website using React.js and modern CSS.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=256&h=256&facepad=2',
-    stack: ['React', 'CSS', 'JavaScript'],
-    duration: '2 weeks', // TEST DURATION
-  },
-];
+import React, { useState, useEffect } from 'react';
+import './Project_internships.css';
+import api from '../../Apiservices/api';
 
 const Projects_internships = () => {
+  const [projects, setProjects] = useState([]);
   const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  const filteredProjects = projectData.filter(item => {
-    const searchLower = search.toLowerCase();
-    return (
-      item.title.toLowerCase().includes(searchLower) ||
-      item.company.toLowerCase().includes(searchLower) ||
-      item.type.toLowerCase().includes(searchLower) ||
-      item.postedBy.toLowerCase().includes(searchLower) ||
-      (item.stack && item.stack.some(tech => tech.toLowerCase().includes(searchLower)))
-    );
-  });
+  // Fetch projects from backend
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await api.get("/api/projects"); // adjust if needed
+        setProjects(res.data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
+
+  // Filter projects by search
+  const filteredProjects = projects.filter(item => {
+  const searchLower = search.toLowerCase();
+
+  const titleMatch = item?.title?.toLowerCase().includes(searchLower);
+  const projectForMatch = item?.projectfor?.toLowerCase().includes(searchLower);
+  const teamTypeMatch = item?.teamtype?.toLowerCase().includes(searchLower);
+
+  const techMatch = Array.isArray(item?.technologies)
+    ? item.technologies.some(tech => tech?.toLowerCase().includes(searchLower))
+    : false;
+
+  const teamMembersMatch = Array.isArray(item?.teammembers)
+    ? item.teammembers.some(mem =>
+        mem?.name?.toLowerCase().includes(searchLower) ||
+        mem?.role?.toLowerCase().includes(searchLower) ||
+        mem?.email?.toLowerCase().includes(searchLower)
+      )
+    : false;
+
+  return titleMatch || projectForMatch || teamTypeMatch || techMatch || teamMembersMatch;
+});
 
   return (
     <div className='project-internship-page'>
+      {/* NavBar */}
       <div className='nav-bar'>
         <h4>ConnectE</h4>
         <nav>
@@ -101,53 +63,96 @@ const Projects_internships = () => {
           <button>Sign Up</button>
         </div>
       </div>
+
+      {/* Banner */}
       <div className='project-internship-banner'>
         <h3>Projects & Internships</h3>
-        <p>Find hands-on projects, valuable internships, and exciting freelance work posted by our alumni network.</p>
+        <p>
+          Explore projects and internships posted by alumni and students.
+          Collaborate, learn, and grow with real-world experiences.
+        </p>
       </div>
+
       {/* Search Section */}
       <div className='project-search-section'>
         <input
           type='text'
-          placeholder='Search by title, company, type, stack, or poster...'
+          placeholder='Search by title, domain, team type, technologies, or members...'
           value={search}
           onChange={e => setSearch(e.target.value)}
           className='project-search-input'
         />
       </div>
+
       {/* Cards Section */}
       <div className='project-cards-grid'>
-        {filteredProjects.length === 0 ? (
+        {loading ? (
+          <div className='project-loading'>Loading projects...</div>
+        ) : filteredProjects.length === 0 ? (
           <div className='project-no-results'>No projects or internships found.</div>
         ) : (
-          filteredProjects.map(item => (
-            <div className='alumni-card' key={item.id}> {/* Use alumni-card for consistent style */}
+          filteredProjects.map((item, idx) => (
+            <div className='project-card' key={item._id || idx}>
+              {/* Header */}
               <div className='card-header-section'>
-                <img src={item.image} alt={item.title} className='alumni-card-img' />
-                <div className='alumni-info'>
+                <img
+                  src={item.image || "https://via.placeholder.com/150"}
+                  alt={item.title}
+                  className='project-card-img'
+                />
+                <div className='project-info'>
                   <h3>{item.title}</h3>
-                  <p className='alumni-job'>{item.type} @ {item.company}</p>
-                  <p className='alumni-company-uni'>{item.location}</p>
+                  <p className='project-job'>
+                    {item.teamtype === 'Team' ? "Team Project " : "Individual Project"}
+                    <span>
+                      .{item.projectfor || 'N/A'}
+                    </span>
+
+                  </p>
                 </div>
               </div>
+
+              {/* Content */}
               <div className='card-content'>
+                {/* Technologies */}
                 <div className='skills-section'>
                   <div className='skills-grid'>
-                    {item.stack && item.stack.map((tech, idx) => (
+                    {item.technologies && item.technologies.map((tech, idx) => (
                       <span className='skill-tag' key={idx}>{tech}</span>
                     ))}
                   </div>
                 </div>
-                <div className='details-section'>
-                  <p className='details-text'>Duration: {item.duration} • Salary: {item.salary || 'N/A'} • Experience: {item.experience || 'N/A'}</p>
-                  <p className='batch-text'>Posted by: {item.postedBy}</p>
+
+                {/* Seeking Members */}
+                <div className='seeking-mem-section'>
+                  <p className='seeking-text'>
+                    Seeking Members: {item.seekingmembers ? "Yes" : "No"}
+                  </p>
                 </div>
-                <div className='description-section' style={{background:'transparent'}}>
+
+                {/* Description */}
+                <div className='description-section' style={{ background: 'transparent' }}>
                   <p className='project-desc'>{item.description}</p>
                 </div>
+
+                {/* Team Members
+                {item.teammembers && item.teammembers.length > 0 && (
+                  <div className="team-section">
+                    <h4>Team Members</h4>
+                    <ul>
+                      {item.teammembers.map((mem, idx) => (
+                        <li key={idx}>
+                          {mem.name} ({mem.role}) - {mem.email}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )} */}
               </div>
-              <div className='project-card-actions' style={{background:'transparent'}}>
-                <button className='view-profile-btn'>Apply</button>
+
+              {/* Actions */}
+              <div className='project-card-actions' style={{ background: 'transparent' }}>
+
                 <button className='view-profile-btn'>View Details</button>
               </div>
             </div>
@@ -155,7 +160,7 @@ const Projects_internships = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Projects_internships
+export default Projects_internships;
